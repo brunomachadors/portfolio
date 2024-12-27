@@ -5,17 +5,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --border-color: #171717;
+  --font-body: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --border-color: #ededed;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), monospace;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.3s;
+}
+
+footer {
+  border-top: 1px solid var(--border-color);
+  transition: border-color 0.3s;
 }
