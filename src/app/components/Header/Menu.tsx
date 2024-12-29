@@ -21,7 +21,7 @@ export default function Menu() {
   return (
     <>
       {/* Menu Desktop */}
-      <nav className="hidden sm:flex gap-4">
+      <nav className="hidden sm:flex gap-12">
         {menuItems.map((item) => (
           <a
             key={item.name}

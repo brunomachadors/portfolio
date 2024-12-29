@@ -9,7 +9,7 @@ export default function Footer() {
           aria-label="INSTAGRAM"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-xl">instagram</span>
+          <span className="material-icons text-sm sm:text-xl">instagram</span>
         </a>
         <a
           href="https://www.linkedin.com/in/brunomrs/"
@@ -18,7 +18,7 @@ export default function Footer() {
           aria-label="LINKEDIN"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-xl">linkedin</span>
+          <span className="material-icons text-sm sm:text-xl">linkedin</span>
         </a>
         <a
           href="https://github.com/brunomachadors"
@@ -27,7 +27,7 @@ export default function Footer() {
           aria-label="GITHUB"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-xl">github</span>
+          <span className="material-icons text-sm sm:text-xl">github</span>
         </a>
         <a
           href="https://medium.com/@brunomachadoricardosilva"
@@ -36,14 +36,14 @@ export default function Footer() {
           aria-label="MEDIUM"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-xl">Medium</span>
+          <span className="material-icons text-sm sm:text-xl">Medium</span>
         </a>
         <a
           href="mailto:brunomachadors@gmail.com"
           aria-label="EMAIL"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-xl">Email</span>
+          <span className="material-icons text-sm sm:text-xl">Email</span>
         </a>
       </div>
 

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
+  --background: black;
   --foreground: #ededed;
   --font-body: var(--font-jetbrains-mono);
 }
