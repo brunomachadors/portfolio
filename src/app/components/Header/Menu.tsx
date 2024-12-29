@@ -26,7 +26,7 @@ export default function Menu() {
           <a
             key={item.name}
             href={item.href}
-            className="text-foreground  text-xl uppercase hover:text-yellow-500 transform transition duration-300 hover:scale-105"
+            className="text-foreground  text-2xl uppercase hover:text-yellow-500 transform transition duration-300 hover:scale-110"
           >
             {item.name}
           </a>
@@ -42,12 +42,12 @@ export default function Menu() {
       </button>
 
       {isMenuOpen && (
-        <nav className="absolute top-16 left-0 w-full h-full p-4 flex flex-col items-start gap-4 sm:hidden bg-background">
+        <nav className="absolute top-16 left-0 w-full h-full p-6 flex flex-col items-start gap-4 sm:hidden bg-background">
           {menuItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-foreground  text-xl uppercase rounded  transition duration-300 hover:scale-105"
+              className="text-foreground text-xl uppercase rounded transition duration-300 hover:scale-105"
               onClick={() => setMenuOpen(false)}
             >
               {item.name}

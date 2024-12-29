@@ -1,8 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="w-full flex flex-col items-center gap-6 p-4 mt-12">
-      <div className="w-11/12 h-[1px] bg-white/20"></div>
-
+    <footer className="w-full flex flex-col items-center justify-start gap-6 p-4  border-t border-white/20 ">
       <div className="flex flex-wrap justify-center gap-6">
         <a
           href="https://www.instagram.com/brunomachadors/"
@@ -11,7 +9,7 @@ export default function Footer() {
           aria-label="INSTAGRAM"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-2xl">instagram</span>
+          <span className="material-icons text-xl">instagram</span>
         </a>
         <a
           href="https://www.linkedin.com/in/brunomrs/"
@@ -20,7 +18,7 @@ export default function Footer() {
           aria-label="LINKEDIN"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-2xl">linkedin</span>
+          <span className="material-icons text-xl">linkedin</span>
         </a>
         <a
           href="https://github.com/brunomachadors"
@@ -29,7 +27,7 @@ export default function Footer() {
           aria-label="GITHUB"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-2xl">github</span>
+          <span className="material-icons text-xl">github</span>
         </a>
         <a
           href="https://medium.com/@brunomachadoricardosilva"
@@ -38,18 +36,18 @@ export default function Footer() {
           aria-label="MEDIUM"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-2xl">Medium</span>
+          <span className="material-icons text-xl">Medium</span>
         </a>
         <a
           href="mailto:brunomachadors@gmail.com"
           aria-label="EMAIL"
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
         >
-          <span className="material-icons text-2xl">Email</span>
+          <span className="material-icons text-xl">Email</span>
         </a>
       </div>
 
-      <p className="text-sm text-foreground/50 uppercase text-center px-4">
+      <p className="text-sm uppercase text-center px-4">
         © 2024 Bruno Machado.
       </p>
     </footer>

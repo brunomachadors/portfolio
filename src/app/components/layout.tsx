@@ -3,9 +3,9 @@ import Header from './Header/Header';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col justify-between h-screen">
       <Header />
-      <main className="flex-1 p-4">{children}</main>
+      <main className="">{children}</main>
       <Footer />
     </div>
   );
