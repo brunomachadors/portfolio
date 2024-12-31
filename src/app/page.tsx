@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import LinkButton from './components/Button/LinkButton';
 
 export default function Home() {
   return (
@@ -10,11 +10,7 @@ export default function Home() {
         <p className="text-lg sm:text-2xl mb-8">
           Explore my skills, experience, and projects as a QA Engineer.
         </p>
-        <Link href="/about">
-          <button className="border border-yellow-500 text-yellow-500 rounded-full px-8 py-4 text-lg hover:scale-110 transition-transform">
-            Start here
-          </button>
-        </Link>
+        <LinkButton text="Start here" href="/about" />
       </div>
     </div>
   );
