@@ -261,7 +261,7 @@ export const EXPERIENCES = [
 
   {
     year: '2009',
-    company: 'EVOLBE DO BRASIL',
+    company: 'EVOLBE',
     slug: 'evolbe',
     period: 'August 2009 - January 2011',
     role: 'Tester',
