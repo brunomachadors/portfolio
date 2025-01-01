@@ -9,7 +9,7 @@ export default function About() {
         {/* Foto */}
         <div className="flex items-center justify-center bg-transparent w-full sm:w-1/2 p-4">
           <Image
-            src="https://res.cloudinary.com/dtglidvcw/image/upload/v1735425689/Portifolio/CAPAPB.png"
+            src="https://res.cloudinary.com/dtglidvcw/image/upload/v1735730755/Portifolio/capalinguacinza.png"
             alt="Bruno Machado"
             width={600}
             height={600}
