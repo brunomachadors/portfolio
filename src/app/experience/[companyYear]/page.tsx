@@ -23,12 +23,6 @@ export default function ExperiencePage() {
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
       {/* Botão para voltar */}
-      <Link
-        href="/resume"
-        className="mb-8 text-yellow-500 border border-yellow-500 rounded-full px-4 py-2 text-sm sm:text-base hover:bg-yellow-500 hover:text-gray-900 transition"
-      >
-        Back to Timeline
-      </Link>
 
       {/* Título Principal */}
       <h1 className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-8 text-center">
