@@ -1,21 +1,17 @@
 'use client';
 import Link from 'next/link';
 import { EXPERIENCES } from '../content/experiences';
+import LinkButton from '../components/Button/LinkButton';
 
 export default function Resume() {
   return (
     <div className="flex flex-col items-center min-h-screen p-8">
-      {/* Título */}
-      <h1 className="text-5xl sm:text-6xl font-bold text-yellow-500 mb-12">
-        TIMELINE
-      </h1>
-
       {/* Linha do Tempo */}
       <div className="w-full max-w-5xl">
         {EXPERIENCES.map((item, index) => (
           <div key={index} className="flex flex-row items-center">
             {/* Ano */}
-            <div className="w-1/4 text-yellow-500 text-lg sm:text-xl font-bold text-right pr-4">
+            <div className=" text-yellow-500 text-lg sm:text-xl font-bold text-left">
               {item.year}
             </div>
             <div className="w-12 border-b border-yellow-500 h-2 -mt-2"></div>
@@ -46,6 +42,10 @@ export default function Resume() {
             </div>
           </div>
         ))}
+      </div>
+      {/* Botão Centralizado Abaixo */}
+      <div className="mt-8">
+        <LinkButton text="Go to Skills" href="/skills" />
       </div>
     </div>
   );
