@@ -1,21 +1,33 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
+import { MenuPage } from './pages/MenuPage';
 
-test('should load the homepage and have the correct title', async ({
-  page,
-}) => {
-  // Navega para a URL base
-  await page.goto('/');
+test.describe('Menu Navigation', () => {
+  test('Validate menu navigation for desktop', async ({ page }) => {
+    const menuPage = new MenuPage(page);
 
-  // Verifica se o título da página contém o esperado
-  await expect(page).toHaveTitle(/Bruno Machado | QA Engineer Portfolio/); // Substitua pelo título esperado
-});
+    test.step('Navigate to Home Page', async () => {
+      await menuPage.navigateToHome();
+    });
 
-test('should display the main header', async ({ page }) => {
-  // Navega para a URL base
-  await page.goto('/');
+    const menuOptions = [
+      'home',
+      'about',
+      'resume',
+      'skills',
+      'projects',
+      'posts',
+      'contacts',
+    ];
 
-  // Verifica se o cabeçalho principal está visível
-  await expect(
-    page.getByRole('heading', { name: 'Welcome to My Portfolio' })
-  ).toBeVisible(); // Substitua pelo texto esperado
+    for (const option of menuOptions) {
+      await test.step(`Validate visibility of menu item: ${option}`, async () => {
+        await menuPage.validateMenuItemVisible(option);
+      });
+
+      await test.step(`Click and validate navigation to: ${option}`, async () => {
+        await menuPage.clickMenuItem(option);
+        await menuPage.validateURL(option);
+      });
+    }
+  });
 });
