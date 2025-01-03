@@ -25,4 +25,20 @@ export class MenuPage {
     const expectedURL = menuItem === 'home' ? '/' : `/${menuItem}`;
     await expect(this.page).toHaveURL(expectedURL);
   }
+
+  async openMobileMenu() {
+    const toggle = await this.page.getByTestId('menu-toggle');
+    await this.page.waitForTimeout(300);
+    await toggle.click();
+  }
+
+  async validateMobileMenuItemVisible(menuItem: string) {
+    const locator = this.page.getByTestId(`mobile-menu-link-${menuItem}`);
+    await expect(locator).toBeVisible();
+  }
+
+  async clickMobileMenuItem(menuItem: string) {
+    const locator = this.page.getByTestId(`mobile-menu-link-${menuItem}`);
+    await locator.click();
+  }
 }

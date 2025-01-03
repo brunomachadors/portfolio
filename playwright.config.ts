@@ -25,14 +25,13 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-    // Uncomment the following to enable mobile testing:
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'iPhone 12 Pro',
+      use: { ...devices['iPhone 12 Pro'], isMobile: true },
+    },
+    {
+      name: 'iPad',
+      use: { ...devices['iPad'] },
+    },
   ],
 });
