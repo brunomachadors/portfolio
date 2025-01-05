@@ -1,5 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
-import { HOME_DATA } from '../data';
+import { HOME_DATA } from '../data/test-data';
 
 export class HomePage {
   readonly page: Page;

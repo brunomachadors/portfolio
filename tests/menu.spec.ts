@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { MenuPage } from './pages/MenuPage';
-import { HEADER_DATA } from './data';
+import { HEADER_DATA } from './data/test-data';
 
 test.describe('Menu', () => {
   test('Navigation Validation', async ({ page, isMobile }) => {
