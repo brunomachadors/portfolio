@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { FooterPage } from './pages/FooterPage';
-import { FOOTER_DATA } from './data';
+import { FOOTER_DATA } from './data/test-data';
 
 test.describe('Footer', () => {
   test('Links and Visibility', async ({ page }) => {
