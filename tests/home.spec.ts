@@ -16,5 +16,9 @@ test.describe('Home Page Validation', () => {
     await test.step('Validate Subtitle Visibility', async () => {
       await homePage.validateSubtitleVisible();
     });
+
+    await test.step('Validate Start Button Visibility', async () => {
+      await homePage.validateStartButtonVisible();
+    });
   });
 });
