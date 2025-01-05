@@ -1,7 +1,7 @@
 name: Deploy and Test with Vercel and Playwright
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -10,29 +10,48 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - uses: vercel/action@v20
-
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          vercel_token: ${{ secrets.VERCEL_TOKEN }}
+          node-version: '16' # Certifique-se de que esta versão é compatível com seu projeto Next.js
 
-          vercel_org_id: ${{ secrets.VERCEL_ORG_ID }}
+      - name: Install dependencies
+        run: npm ci
 
-          vercel_project_id: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }} # Opcional
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./ # Altere se o projeto estiver em um subdiretório
 
   test:
     needs: deploy
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
 
       - name: Install dependencies
+        run: npm ci
 
-        run: npm install
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-
         run: npx playwright test
