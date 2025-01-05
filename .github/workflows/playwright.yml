@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '16' # Certifique-se de que esta versão é compatível com seu projeto Next.js
+          node-version: '20.0.0'
 
       - name: Install dependencies
         run: npm ci
