@@ -1,15 +1,17 @@
 name: Playwright Tests
+
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
+  deployment_status:
+
 jobs:
   test:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -20,19 +22,10 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Build Application
-        run: npm run build
-
-      - name: Start Local Server
-        run: npm run start &
-        env:
-          PORT: 3000
-
-      - name: Wait for Local Server
-        run: npx wait-on http://localhost:3000
-
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          BASE_URL: ${{ github.event.deployment_status.environment_url }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
