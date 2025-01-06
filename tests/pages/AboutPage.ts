@@ -43,18 +43,16 @@ export class AboutPage {
     await expect(containerLocator).toBeVisible();
   }
 
-  async clickToggleIcon(index: number) {
-    const toggleIcon = this.page.locator(
-      `[data-test-id="toggle-icon-${index}"]`
-    );
-    await toggleIcon.click();
+  async clickSession(index: number) {
+    const session = this.page.locator(`[data-test-id="section-${index}"]`);
+    await session.click();
 
     const contentLocator = this.page.locator(
       `[data-test-id="section-content-${index}"]`
     );
     await this.page.waitForTimeout(300);
     if (!(await contentLocator.isVisible())) {
-      await toggleIcon.click();
+      await session.click();
       await this.page.waitForTimeout(300);
     }
   }
@@ -76,7 +74,7 @@ export class AboutPage {
     );
 
     if (!(await contentLocator.isVisible())) {
-      await this.clickToggleIcon(index);
+      await this.clickSession(index);
     }
 
     await expect(contentLocator).toBeVisible();

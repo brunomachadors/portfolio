@@ -16,7 +16,7 @@ export default function Footer() {
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
           data-test-id="footer-link-instagram"
         >
-          <span className="material-icons text-sm sm:text-xl">instagram</span>
+          <span className=" text-sm sm:text-xl">instagram</span>
         </a>
         <a
           href="https://www.linkedin.com/in/brunomrs/"
@@ -26,7 +26,7 @@ export default function Footer() {
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
           data-test-id="footer-link-linkedin"
         >
-          <span className="material-icons text-sm sm:text-xl">linkedin</span>
+          <span className=" text-sm sm:text-xl">linkedin</span>
         </a>
         <a
           href="https://github.com/brunomachadors"
@@ -36,7 +36,7 @@ export default function Footer() {
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
           data-test-id="footer-link-github"
         >
-          <span className="material-icons text-sm sm:text-xl">github</span>
+          <span className=" text-sm sm:text-xl">github</span>
         </a>
         <a
           href="https://medium.com/@brunomachadoricardosilva"
@@ -46,7 +46,7 @@ export default function Footer() {
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
           data-test-id="footer-link-medium"
         >
-          <span className="material-icons text-sm sm:text-xl">Medium</span>
+          <span className="text-sm sm:text-xl">Medium</span>
         </a>
         <a
           href="mailto:brunomachadors@gmail.com"
@@ -54,7 +54,7 @@ export default function Footer() {
           className="hover:text-yellow-500 transition transform hover:scale-110 uppercase"
           data-test-id="footer-link-email"
         >
-          <span className="material-icons text-sm sm:text-xl">Email</span>
+          <span className=" text-sm sm:text-xl">Email</span>
         </a>
       </div>
 

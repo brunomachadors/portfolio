@@ -31,7 +31,7 @@ test.describe('About Page', () => {
       const { title, content } = ABOUT_DATA.sections[i];
 
       await test.step(`Section ${i}: ${title}`, async () => {
-        await aboutPage.clickToggleIcon(i);
+        await aboutPage.clickSession(i);
         await aboutPage.validateSectionTitleVisible(i, title);
         await aboutPage.validateSectionContentVisible(i, content);
       });
