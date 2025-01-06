@@ -1,6 +1,32 @@
+'use client';
+import { useState, useEffect } from 'react';
 import LinkButton from './components/Button/LinkButton';
+import LoadingSpinner from './components/Loading/Loading';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className="flex items-center justify-center min-h-screen"
+        data-test-id="loading-state"
+        role="status"
+        aria-label="Loading home page content"
+      >
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
     <main
       className="flex items-center justify-center min-h-[85vh] p-8"

@@ -1,8 +1,29 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AboutSections from '../components/AboutSections/AboutSections';
 import LinkButton from '../components/Button/LinkButton';
+import LoadingSpinner from '../components/Loading/Loading';
 
 export default function About() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Simulate a loading time, adjust as needed
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
   return (
     <main
       className="flex flex-col items-center justify-center min-h-[85vh] p-8"
@@ -24,6 +45,7 @@ export default function About() {
             height={600}
             className="rounded-lg shadow-lg object-cover"
             aria-label="Photo of Bruno Machado"
+            priority
           />
         </div>
 

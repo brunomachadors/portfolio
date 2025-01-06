@@ -62,7 +62,7 @@ export const skillColors: Record<string, string> = {
   // Interpersonal Skills
   'Public Speaking': 'text-purple-500 border-purple-500',
   'Didactic Explanations': 'text-purple-500 border-purple-500',
-  'Talks on Accessibility and Security': 'text-purple-500 border-purple-500',
+  Talks: 'text-purple-500 border-purple-500',
 
   'Commitment to Goals': 'text-blue-400 border-blue-400',
   'Critical Thinking': 'text-blue-400 border-blue-400',

@@ -53,12 +53,12 @@ export const SKILLS: SkillCategory[] = [
           {
             text: 'HTML',
             description:
-              'Currently, I teach HTML basics to my mentees as part of a mentorship program. I also offer a course available at https://brunomachadors.github.io/webclass/.',
+              'Currently, I teach HTML basics to my mentees as part of a mentorship program.',
           },
           {
             text: 'CSS',
             description:
-              'CSS is the foundation of web styling. I enjoy creating visually appealing components and also teach CSS as part of my mentorship program, available at https://brunomachadors.github.io/webclass/.',
+              'CSS is the foundation of web styling. I enjoy creating visually appealing components and also teach CSS as part of my mentorship program.',
           },
           {
             text: 'Redux',

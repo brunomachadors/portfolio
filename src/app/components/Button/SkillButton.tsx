@@ -5,6 +5,7 @@ interface SkillButtonProps {
   description?: string;
   isActive: boolean;
   onClick: () => void;
+  testId?: string; // Novo parâmetro para test ID
 }
 
 export default function SkillButton({
@@ -12,6 +13,7 @@ export default function SkillButton({
   description = 'This is a placeholder description for the skill.',
   isActive,
   onClick,
+  testId, // Recebendo test ID
 }: SkillButtonProps) {
   const colorClasses = skillColors[text] || defaultSkillColor;
 
@@ -26,6 +28,7 @@ export default function SkillButton({
         alignItems: 'center',
         justifyContent: 'center',
       }}
+      data-test-id={testId} // Adicionando test ID ao container principal
     >
       <button
         className={`border ${
@@ -36,16 +39,21 @@ export default function SkillButton({
           textAlign: 'center',
           whiteSpace: 'normal',
         }}
+        data-test-id={`${testId}-button`} // Adicionando test ID específico para o botão
       >
         <span
           className={`font-bold transition-all duration-300 ${
             isActive ? 'text-2xl sm:text-2xl px-4 sm:px-12' : 'text-lg'
           }`}
+          data-test-id={`${testId}-text`} // Test ID para o texto
         >
           {text}
         </span>
         {isActive && (
-          <p className={`mt-4 text-m sm:text-xl ${colorClasses} px-4 sm:px-12`}>
+          <p
+            className={`mt-4 text-m sm:text-xl ${colorClasses} px-4 sm:px-12`}
+            data-test-id={`${testId}-description`} // Test ID para a descrição
+          >
             {description}
           </p>
         )}

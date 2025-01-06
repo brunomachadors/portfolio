@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const sections = [
   {
@@ -64,56 +63,62 @@ export default function AboutSections() {
       </p>
 
       {sections.map((section, index) => (
-        <div
+        <section
           key={index}
           className="w-full pb-4 border-b border-yellow-500 cursor-pointer last:border-none px-0 mx-0"
           data-test-id={`section-${index}`}
+          onClick={() => toggleSection(index)}
         >
-          <div className="flex justify-between items-center">
-            <span
+          <header
+            className="flex justify-between items-center"
+            role="button"
+            tabIndex={0}
+            aria-expanded={openSection === index}
+            aria-controls={`section-content-${index}`}
+            data-test-id={`section-toggle-${index}`}
+          >
+            <h2
               className="text-lg sm:text-xl font-bold text-yellow-500"
               data-test-id={`section-title-${index}`}
+              id={`section-title-${index}`}
             >
               {section.title}
-            </span>
+            </h2>
             <span
               className={`transform transition-transform duration-300 ${
                 openSection === index ? 'rotate-180' : ''
               }`}
               data-test-id={`toggle-icon-${index}`}
-              onClick={() => toggleSection(index)}
-              role="button" // Semântica de acessibilidade
-              aria-expanded={openSection === index}
             >
               ▼
             </span>
-          </div>
+          </header>
           {openSection === index && (
             <div
               className="mt-2 text-gray-300 text-base sm:text-lg"
               data-test-id={`section-content-${index}`}
+              id={`section-content-${index}`}
             >
               {typeof section.content === 'string' ? (
-                <span data-test-id={`section-text-${index}`}>
-                  {section.content}
-                </span>
+                <p data-test-id={`section-text-${index}`}>{section.content}</p>
               ) : (
-                <div>
+                <div data-test-id={`section-content-wrapper-${index}`}>
                   {React.Children.map(
                     section.content.props.children,
                     (child, childIndex) => (
-                      <p
+                      <div
+                        key={childIndex}
                         data-test-id={`section-content-${index}-line-${childIndex}`}
                       >
                         {child}
-                      </p>
+                      </div>
                     )
                   )}
                 </div>
               )}
             </div>
           )}
-        </div>
+        </section>
       ))}
     </div>
   );
