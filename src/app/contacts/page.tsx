@@ -61,7 +61,7 @@ export default function ContactPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="w-3/4 border border-white p-8 rounded-lg shadow-md"
+          className="w-full sm:w-3/4 border border-white p-8 rounded-lg shadow-md"
           data-test-id="contact-form"
           aria-labelledby="contact-page-title"
         >
@@ -137,7 +137,7 @@ export default function ContactPage() {
         aria-labelledby="follow-me-title"
       >
         <h2
-          className="text-2xl font-semibold text-yellow-500 mb-4"
+          className="text-2xl font-semibold text-yellow-500 mt-8 mb-4"
           id="follow-me-title"
         >
           Follow Me

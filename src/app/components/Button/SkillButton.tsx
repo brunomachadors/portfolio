@@ -1,11 +1,12 @@
 import { skillColors, defaultSkillColor } from '../../styles/skillStyles';
+import { FiChevronRight, FiChevronDown } from 'react-icons/fi'; // Ícones
 
 interface SkillButtonProps {
   text: string;
   description?: string;
   isActive: boolean;
   onClick: () => void;
-  testId?: string; // Novo parâmetro para test ID
+  testId?: string;
 }
 
 export default function SkillButton({
@@ -13,7 +14,7 @@ export default function SkillButton({
   description = 'This is a placeholder description for the skill.',
   isActive,
   onClick,
-  testId, // Recebendo test ID
+  testId,
 }: SkillButtonProps) {
   const colorClasses = skillColors[text] || defaultSkillColor;
 
@@ -28,7 +29,7 @@ export default function SkillButton({
         alignItems: 'center',
         justifyContent: 'center',
       }}
-      data-test-id={testId} // Adicionando test ID ao container principal
+      data-test-id={testId}
     >
       <button
         className={`border ${
@@ -39,20 +40,27 @@ export default function SkillButton({
           textAlign: 'center',
           whiteSpace: 'normal',
         }}
-        data-test-id={`${testId}-button`} // Adicionando test ID específico para o botão
+        data-test-id={`${testId}-button`}
       >
         <span
-          className={`font-bold transition-all duration-300 ${
-            isActive ? 'text-2xl sm:text-2xl px-4 sm:px-12' : 'text-lg'
+          className={`font-bold transition-all duration-300 flex items-center gap-2 ${
+            isActive
+              ? 'text-2xl sm:text-2xl px-4 sm:px-12 justify-center'
+              : 'text-lg'
           }`}
-          data-test-id={`${testId}-text`} // Test ID para o texto
+          data-test-id={`${testId}-text`}
         >
+          {isActive ? (
+            <FiChevronDown className="inline" />
+          ) : (
+            <FiChevronRight className="inline" />
+          )}
           {text}
         </span>
         {isActive && (
           <p
             className={`mt-4 text-m sm:text-xl ${colorClasses} px-4 sm:px-12`}
-            data-test-id={`${testId}-description`} // Test ID para a descrição
+            data-test-id={`${testId}-description`}
           >
             {description}
           </p>
