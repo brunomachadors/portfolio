@@ -1,39 +1,6 @@
 'use client';
+import { sections } from '@/app/content/about';
 import React, { useState } from 'react';
-
-const sections = [
-  {
-    title: 'Personal Information',
-    content: (
-      <div>
-        <p>
-          <strong>Location:</strong> Porto, Portugal
-        </p>
-        <p>
-          <strong>Nationality:</strong> Brazilian
-        </p>
-        <p>
-          <strong>Year of Birth:</strong> 1986
-        </p>
-      </div>
-    ),
-  },
-  {
-    title: 'My Journey into QA',
-    content:
-      'I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over 17 years of experience in testing, I have specialized in test automation since 2017.',
-  },
-  {
-    title: 'Focus on Shift Left Practices',
-    content:
-      'I actively promote early involvement of QA in the development process, collaborating with developers to implement test frameworks and identify potential issues before they arise.',
-  },
-  {
-    title: 'Collaboration and Mentoring',
-    content:
-      'I value building strong relationships with colleagues, fostering a collaborative work environment, and mentoring professionals in the testing field.',
-  },
-];
 
 export default function AboutSections() {
   const [openSection, setOpenSection] = useState<number | null>(null);
@@ -59,7 +26,7 @@ export default function AboutSections() {
         data-test-id="about-description"
       >
         I&apos;m Bruno Machado, a QA Engineer passionate about software
-        development, test automation, accessibility, and Shift Left practices.
+        development.
       </p>
 
       {sections.map((section, index) => (
