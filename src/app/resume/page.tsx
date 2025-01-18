@@ -28,7 +28,7 @@ export default function Resume() {
   return (
     <main
       className="flex flex-col items-center min-h-screen p-8"
-      data-test-id="resume-page"
+      data-testid="resume-page"
       role="main"
       aria-labelledby="resume-page-title"
     >
@@ -37,17 +37,17 @@ export default function Resume() {
       </h1>
 
       {/* Timeline */}
-      <div className="w-full max-w-5xl" data-test-id="resume-timeline">
+      <div className="w-full max-w-5xl" data-testid="resume-timeline">
         {EXPERIENCES.map((item, index) => (
           <div
             key={index}
             className="flex flex-row items-center"
-            data-test-id={`resume-item-${index}`}
+            data-testid={`resume-item-${index}`}
           >
             {/* Year */}
             <div
               className="text-yellow-500 text-lg sm:text-xl font-bold text-left"
-              data-test-id={`resume-item-year-${index}`}
+              data-testid={`resume-item-year-${index}`}
             >
               {item.year}
             </div>
@@ -59,29 +59,29 @@ export default function Resume() {
             {/* Job Details */}
             <div
               className="w-3/4 pt-4 text-gray-300 border-l-8 border-yellow-500 border-b pl-4"
-              data-test-id={`resume-item-details-${index}`}
+              data-testid={`resume-item-details-${index}`}
             >
               <h3
                 className="text-xl sm:text-2xl font-bold text-yellow-500"
-                data-test-id={`resume-item-company-${index}`}
+                data-testid={`resume-item-company-${index}`}
               >
                 {item.company}
               </h3>
               <p
                 className="text-sm sm:text-base"
-                data-test-id={`resume-item-period-${index}`}
+                data-testid={`resume-item-period-${index}`}
               >
                 {item.period}
               </p>
               <p
                 className="mt-2 text-sm sm:text-base font-semibold"
-                data-test-id={`resume-item-role-${index}`}
+                data-testid={`resume-item-role-${index}`}
               >
                 {item.role}
               </p>
               <p
                 className="mt-2 mb-8 text-sm sm:text-base"
-                data-test-id={`resume-item-description-${index}`}
+                data-testid={`resume-item-description-${index}`}
               >
                 {item.shortDescription}
               </p>
@@ -89,12 +89,12 @@ export default function Resume() {
               {/* Centralize button */}
               <div
                 className="flex flex-col items-center mb-4"
-                data-test-id={`resume-item-link-container-${index}`}
+                data-testid={`resume-item-link-container-${index}`}
               >
                 <Link
                   href={`/experience/${item.company.toLowerCase()}-${item.year.toLowerCase()}`}
                   className="inline-block text-yellow-500 border border-yellow-500 rounded-full px-4 py-2 text-sm sm:text-base hover:bg-yellow-500 hover:text-gray-900 transition"
-                  data-test-id={`resume-item-link-${index}`}
+                  data-testid={`resume-item-link-${index}`}
                   aria-label={`Learn more about ${item.role} at ${item.company} in ${item.year}`}
                 >
                   Know more
@@ -106,11 +106,11 @@ export default function Resume() {
       </div>
 
       {/* Button to go to Skills */}
-      <div className="mt-8" data-test-id="skills-button-container">
+      <div className="mt-8" data-testid="skills-button-container">
         <LinkButton
           text="Go to Skills"
           href="/skills"
-          data-test-id="skills-button"
+          data-testid="skills-button"
           aria-label="Navigate to Skills page"
         />
       </div>

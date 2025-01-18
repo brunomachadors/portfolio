@@ -2,10 +2,10 @@ import { test } from '@playwright/test';
 import { ResumePage } from './pages/ResumePage';
 
 test.describe('Resume', () => {
-  test('Validate Resume Page content', async ({ page }) => {
+  test('Content', async ({ page }) => {
     const resumePage = new ResumePage(page);
 
-    await test.step('Resume Page', async () => {
+    await test.step('Page', async () => {
       await resumePage.navigateToResume();
       await resumePage.validatePageLoaded();
     });

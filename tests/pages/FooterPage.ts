@@ -8,9 +8,9 @@ export class FooterPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.footerContainer = page.locator('[data-test-id="footer-container"]');
-    this.footerLinks = page.locator('[data-test-id="footer-links"] a');
-    this.copyrightText = page.locator('[data-test-id="footer-copyright"]');
+    this.footerContainer = page.getByTestId('footer-container');
+    this.footerLinks = page.getByTestId('footer-links').locator('a');
+    this.copyrightText = page.getByTestId('footer-copyright');
   }
 
   async validateFooterVisible() {
@@ -18,9 +18,7 @@ export class FooterPage {
   }
 
   async validateLinkVisible(linkTestId: string) {
-    const link = this.page.locator(
-      `[data-test-id="footer-link-${linkTestId}"]`
-    );
+    const link = this.page.getByTestId(`footer-link-${linkTestId}`);
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute('href', expect.stringContaining('http'));
   }

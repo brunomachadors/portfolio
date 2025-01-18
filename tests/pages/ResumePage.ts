@@ -8,11 +8,9 @@ export class ResumePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.timelineContainer = page.locator('[data-test-id="resume-timeline"]');
-    this.backToTimelineButton = page.locator(
-      '[data-test-id="back-to-timeline-button"]'
-    );
-    this.goToSkillsButton = page.locator('[data-test-id="skills-button"]');
+    this.timelineContainer = page.getByTestId('resume-timeline');
+    this.backToTimelineButton = page.getByTestId('back-to-timeline-button');
+    this.goToSkillsButton = page.getByTestId('skills-button');
   }
 
   async navigateToResume() {
@@ -24,25 +22,17 @@ export class ResumePage {
   }
 
   async getTimelineSections() {
-    return this.page.locator('[data-test-id^="resume-item-details-"]').count();
+    return this.page.getByTestId(/^resume-item-details-/).count();
   }
 
   async validateSection(index: number) {
-    const company = this.page.locator(
-      `[data-test-id="resume-item-company-${index}"]`
+    const company = this.page.getByTestId(`resume-item-company-${index}`);
+    const role = this.page.getByTestId(`resume-item-role-${index}`);
+    const period = this.page.getByTestId(`resume-item-period-${index}`);
+    const shortDescription = this.page.getByTestId(
+      `resume-item-description-${index}`
     );
-    const role = this.page.locator(
-      `[data-test-id="resume-item-role-${index}"]`
-    );
-    const period = this.page.locator(
-      `[data-test-id="resume-item-period-${index}"]`
-    );
-    const shortDescription = this.page.locator(
-      `[data-test-id="resume-item-description-${index}"]`
-    );
-    const year = this.page.locator(
-      `[data-test-id="resume-item-year-${index}"]`
-    );
+    const year = this.page.getByTestId(`resume-item-year-${index}`);
 
     await expect(company).toBeVisible();
     await expect(role).toBeVisible();

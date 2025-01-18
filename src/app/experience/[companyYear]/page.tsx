@@ -31,7 +31,7 @@ export default function ExperiencePage() {
     return (
       <div
         className="flex items-center justify-center min-h-screen"
-        data-test-id="loading-state"
+        data-testid="loading-state"
         role="status"
         aria-label="Loading experience details"
       >
@@ -44,7 +44,7 @@ export default function ExperiencePage() {
     return (
       <div
         className="text-center text-yellow-500"
-        data-test-id="experience-not-found"
+        data-testid="experience-not-found"
         role="alert"
         aria-live="polite"
       >
@@ -56,14 +56,14 @@ export default function ExperiencePage() {
   return (
     <div
       className="flex flex-col items-center min-h-screen p-8"
-      data-test-id="experience-page"
+      data-testid="experience-page"
       aria-labelledby="experience-page-title"
     >
       {/* Título Principal */}
       <h1
         className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-8 text-center"
         id="experience-page-title"
-        data-test-id="experience-title"
+        data-testid="experience-title"
       >
         {experience.company}
       </h1>
@@ -71,29 +71,29 @@ export default function ExperiencePage() {
       {/* Período e Localização */}
       <p
         className="text-base sm:text-lg text-gray-300 text-center mb-2"
-        data-test-id="experience-period"
+        data-testid="experience-period"
       >
         {experience.period}
       </p>
       <p
         className="text-sm sm:text-base text-gray-400 italic mb-12"
-        data-test-id="experience-location"
+        data-testid="experience-location"
       >
         Location: {experience.location}
       </p>
 
       {/* Projetos */}
-      <div className="w-full max-w-5xl space-y-12" data-test-id="projects-list">
+      <div className="w-full max-w-5xl space-y-12" data-testid="projects-list">
         {experience.fullDescription.map((project, index) => (
           <section
             key={index}
-            data-test-id={`project-${index}`}
+            data-testid={`project-${index}`}
             aria-labelledby={`project-title-${index}`}
           >
             <h2
               className="text-2xl sm:text-3xl font-bold text-yellow-500 mb-4"
               id={`project-title-${index}`}
-              data-test-id={`project-title-${index}`}
+              data-testid={`project-title-${index}`}
             >
               {project.project}
             </h2>
@@ -114,13 +114,13 @@ export default function ExperiencePage() {
             {project.gallery && project.gallery.length > 0 && (
               <div
                 className="mt-6"
-                data-test-id={`project-gallery-${index}`}
+                data-testid={`project-gallery-${index}`}
                 aria-labelledby={`gallery-title-${index}`}
               >
                 <h3
                   className="text-xl sm:text-2xl font-bold text-yellow-500 mb-4"
                   id={`gallery-title-${index}`}
-                  data-test-id={`gallery-title-${index}`}
+                  data-testid={`gallery-title-${index}`}
                 >
                   Gallery
                 </h3>
@@ -129,7 +129,7 @@ export default function ExperiencePage() {
                     <div
                       key={imgIndex}
                       className="relative w-full h-64 sm:h-80"
-                      data-test-id={`gallery-image-${index}-${imgIndex}`}
+                      data-testid={`gallery-image-${index}-${imgIndex}`}
                     >
                       <Image
                         src={url}
@@ -153,7 +153,7 @@ export default function ExperiencePage() {
       <Link
         href="/resume"
         className="mt-12 text-yellow-500 border border-yellow-500 rounded-full px-4 py-2 text-sm sm:text-base hover:bg-yellow-500 hover:text-gray-900 transition"
-        data-test-id="back-to-resume-bottom"
+        data-testid="back-to-resume-bottom"
         aria-label="Back to Resume Timeline"
       >
         Back to Timeline

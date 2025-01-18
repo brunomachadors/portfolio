@@ -17,39 +17,33 @@ export class AboutPage {
   }
 
   async validateAboutTitle(expectedTitle: string) {
-    const titleLocator = this.page.locator('[data-test-id="about-title"]');
+    const titleLocator = this.page.getByTestId('about-title');
     await expect(titleLocator).toBeVisible();
     await expect(titleLocator).toHaveText(expectedTitle);
   }
 
   async validateAboutDescription(expectedDescription: string) {
-    const descriptionLocator = this.page.locator(
-      '[data-test-id="about-description"]'
-    );
+    const descriptionLocator = this.page.getByTestId('about-description');
     await expect(descriptionLocator).toBeVisible();
     await expect(descriptionLocator).toHaveText(expectedDescription);
   }
 
   async validateResumeButton(expectedText: string) {
-    const buttonLocator = this.page.locator('[data-test-id="resume-button"]');
+    const buttonLocator = this.page.getByTestId('resume-button');
     await expect(buttonLocator).toBeVisible({ timeout: 5000 });
     await expect(buttonLocator).toHaveText(expectedText);
   }
 
   async validateAboutContainer() {
-    const containerLocator = this.page.locator(
-      '[data-test-id="about-container"]'
-    );
+    const containerLocator = this.page.getByTestId('about-container');
     await expect(containerLocator).toBeVisible();
   }
 
   async clickSession(index: number) {
-    const session = this.page.locator(`[data-test-id="section-${index}"]`);
+    const session = this.page.getByTestId(`section-${index}`);
     await session.click();
 
-    const contentLocator = this.page.locator(
-      `[data-test-id="section-content-${index}"]`
-    );
+    const contentLocator = this.page.getByTestId(`section-content-${index}`);
     await this.page.waitForTimeout(300);
     if (!(await contentLocator.isVisible())) {
       await session.click();
@@ -58,9 +52,7 @@ export class AboutPage {
   }
 
   async validateSectionTitleVisible(index: number, expectedTitle: string) {
-    const titleLocator = this.page.locator(
-      `[data-test-id="section-title-${index}"]`
-    );
+    const titleLocator = this.page.getByTestId(`section-title-${index}`);
     await expect(titleLocator).toBeVisible();
     await expect(titleLocator).toHaveText(expectedTitle);
   }
@@ -69,9 +61,7 @@ export class AboutPage {
     index: number,
     expectedContent: string | string[]
   ) {
-    const contentLocator = this.page.locator(
-      `[data-test-id="section-content-${index}"]`
-    );
+    const contentLocator = this.page.getByTestId(`section-content-${index}`);
 
     if (!(await contentLocator.isVisible())) {
       await this.clickSession(index);
@@ -81,8 +71,8 @@ export class AboutPage {
 
     if (Array.isArray(expectedContent)) {
       for (let i = 0; i < expectedContent.length; i++) {
-        const lineLocator = contentLocator.locator(
-          `[data-test-id="section-content-${index}-line-${i}"]`
+        const lineLocator = contentLocator.getByTestId(
+          `section-content-${index}-line-${i}`
         );
         await expect(lineLocator).toHaveText(expectedContent[i]);
       }

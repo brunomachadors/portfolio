@@ -42,7 +42,7 @@ export default function SkillsPage() {
   return (
     <main
       className="flex flex-col items-center min-h-screen p-4 sm:p-8"
-      data-test-id="skills-page"
+      data-testid="skills-page"
       role="main"
       aria-labelledby="skills-page-title"
     >
@@ -53,7 +53,7 @@ export default function SkillsPage() {
       {/* Tabs */}
       <div
         className="mb-8 w-full max-w-5xl px-4 sm:px-0"
-        data-test-id="skills-tabs"
+        data-testid="skills-tabs"
         role="tablist"
       >
         <div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center">
@@ -66,10 +66,12 @@ export default function SkillsPage() {
                   : 'text-gray-300 border-transparent'
               }`}
               onClick={() => setSelectedTab(tab)}
-              data-test-id={`tab-${tab.toLowerCase()}`}
+              data-testid={`tab-${tab.toLowerCase().replace(/\s+/g, '-')}`}
               role="tab"
               aria-selected={selectedTab === tab}
-              aria-controls={`tab-panel-${tab.toLowerCase()}`}
+              aria-controls={`tab-panel-${tab
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {tab}
             </button>
@@ -78,24 +80,28 @@ export default function SkillsPage() {
       </div>
 
       {/* Skills */}
-      <div className="w-full max-w-5xl space-y-8" data-test-id="skills-content">
+      <div className="w-full max-w-5xl space-y-8" data-testid="skills-content">
         {categories.map((subcategory, subIndex) => (
           <section
             key={subIndex}
             className="m-10 text-center"
-            data-test-id={`subcategory-${subcategory.name.toLowerCase()}`}
+            data-testid={`subcategory-${subcategory.name.toLowerCase()}`}
             aria-labelledby={`subcategory-title-${subIndex}`}
           >
             <h3
               className="text-xl sm:text-4xl font-bold text-gray-300 mb-4"
               id={`subcategory-title-${subIndex}`}
-              data-test-id={`subcategory-title-${subIndex}`}
+              data-testid={`subcategory-title-${subcategory.name
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {subcategory.name}
             </h3>
             <div
               className="flex flex-wrap gap-4 justify-center"
-              data-test-id={`subcategory-items-${subIndex}`}
+              data-testid={`subcategory-items-${subcategory.name
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {subcategory.items.map(({ text, description }, itemIndex) => (
                 <SkillButton
@@ -104,7 +110,6 @@ export default function SkillsPage() {
                   description={description}
                   isActive={activeSkill === text}
                   onClick={() => handleSkillClick(text)}
-                  testId={`skill-button-${text.toLowerCase()}`}
                   aria-pressed={activeSkill === text}
                 />
               ))}
@@ -117,18 +122,18 @@ export default function SkillsPage() {
       <div
         className="w-1/4 border-t border-gray-500 opacity-50 mt-12 mb-8"
         aria-hidden="true"
-        data-test-id="skills-divider"
+        data-testid="skills-divider"
       />
 
       {/* Go to Projects Button */}
       <div
-        data-test-id="projects-button-container"
+        data-testid="projects-button-container"
         aria-label="Navigate to Projects section"
       >
         <LinkButton
           text="Go to Projects"
           href="/projects"
-          data-test-id="projects-button"
+          data-testid="projects-button"
           aria-label="Navigate to Projects page"
         />
       </div>

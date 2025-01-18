@@ -12,18 +12,18 @@ export default function AboutSections() {
   return (
     <div
       className="flex flex-col items-start gap-6"
-      data-test-id="about-sections"
+      data-testid="about-sections"
     >
       <h1
         className="text-4xl sm:text-5xl font-bold text-yellow-500 text-center sm:text-left mb-4"
-        data-test-id="about-title"
+        data-testid="about-title"
       >
         About Me
       </h1>
 
       <p
         className="text-lg sm:text-xl text-gray-300 mb-4"
-        data-test-id="about-description"
+        data-testid="about-description"
       >
         I&apos;m Bruno Machado, a QA Engineer passionate about software
         development.
@@ -33,7 +33,7 @@ export default function AboutSections() {
         <section
           key={index}
           className="w-full pb-4 border-b border-yellow-500 cursor-pointer last:border-none px-0 mx-0"
-          data-test-id={`section-${index}`}
+          data-testid={`section-${index}`}
           onClick={() => toggleSection(index)}
         >
           <header
@@ -42,11 +42,11 @@ export default function AboutSections() {
             tabIndex={0}
             aria-expanded={openSection === index}
             aria-controls={`section-content-${index}`}
-            data-test-id={`section-toggle-${index}`}
+            data-testid={`section-toggle-${index}`}
           >
             <h2
               className="text-lg sm:text-xl font-bold text-yellow-500"
-              data-test-id={`section-title-${index}`}
+              data-testid={`section-title-${index}`}
               id={`section-title-${index}`}
             >
               {section.title}
@@ -55,7 +55,7 @@ export default function AboutSections() {
               className={`transform transition-transform duration-300 ${
                 openSection === index ? 'rotate-180' : ''
               }`}
-              data-test-id={`toggle-icon-${index}`}
+              data-testid={`toggle-icon-${index}`}
             >
               ▼
             </span>
@@ -63,19 +63,19 @@ export default function AboutSections() {
           {openSection === index && (
             <div
               className="mt-2 text-gray-300 text-base sm:text-lg"
-              data-test-id={`section-content-${index}`}
+              data-testid={`section-content-${index}`}
               id={`section-content-${index}`}
             >
               {typeof section.content === 'string' ? (
-                <p data-test-id={`section-text-${index}`}>{section.content}</p>
+                <p data-testid={`section-text-${index}`}>{section.content}</p>
               ) : (
-                <div data-test-id={`section-content-wrapper-${index}`}>
+                <div data-testid={`section-content-wrapper-${index}`}>
                   {React.Children.map(
                     section.content.props.children,
                     (child, childIndex) => (
                       <div
                         key={childIndex}
-                        data-test-id={`section-content-${index}-line-${childIndex}`}
+                        data-testid={`section-content-${index}-line-${childIndex}`}
                       >
                         {child}
                       </div>

@@ -14,7 +14,6 @@ export default function SkillButton({
   description = 'This is a placeholder description for the skill.',
   isActive,
   onClick,
-  testId,
 }: SkillButtonProps) {
   const colorClasses = skillColors[text] || defaultSkillColor;
 
@@ -29,7 +28,6 @@ export default function SkillButton({
         alignItems: 'center',
         justifyContent: 'center',
       }}
-      data-test-id={testId}
     >
       <button
         className={`border ${
@@ -40,7 +38,7 @@ export default function SkillButton({
           textAlign: 'center',
           whiteSpace: 'normal',
         }}
-        data-test-id={`${testId}-button`}
+        data-testid={`skill-${text.toLowerCase().replace(/\s+/g, '-')}`}
       >
         <span
           className={`font-bold transition-all duration-300 flex items-center gap-2 ${
@@ -48,7 +46,7 @@ export default function SkillButton({
               ? 'text-2xl sm:text-2xl px-4 sm:px-12 justify-center'
               : 'text-lg'
           }`}
-          data-test-id={`${testId}-text`}
+          data-testid={`${text.toLowerCase().replace(/\\s+/g, '-')}-text`}
         >
           {isActive ? (
             <FiChevronDown className="inline" />
@@ -60,7 +58,9 @@ export default function SkillButton({
         {isActive && (
           <p
             className={`mt-4 text-m sm:text-xl ${colorClasses} px-4 sm:px-12`}
-            data-test-id={`${testId}-description`}
+            data-testid={`${text
+              .toLowerCase()
+              .replace(/\s+/g, '-')}-description`}
           >
             {description}
           </p>

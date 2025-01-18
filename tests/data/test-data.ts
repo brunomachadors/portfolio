@@ -26,7 +26,7 @@ export const HEADER_DATA = {
 export const ABOUT_DATA = {
   aboutTitle: 'About Me',
   aboutDescription:
-    "I'm Bruno Machado, a QA Engineer passionate about software development, test automation, accessibility, and Shift Left practices.",
+    "I'm Bruno Machado, a QA Engineer passionate about software development.",
   sections: [
     {
       title: 'Personal Information',
