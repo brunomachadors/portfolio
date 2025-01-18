@@ -43,6 +43,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           git checkout --orphan gh-pages
           git --work-tree=allure-report add --all
           git --work-tree=allure-report commit -m "Deploy Allure Report"
