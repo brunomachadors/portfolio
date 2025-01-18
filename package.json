@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test && npm run test:allure:open",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:allure:generate": "allure generate allure-results --clean -o allure-report",
+    "test:allure:open": "npm run test:allure:generate && allure open allure-report"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -21,6 +27,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "allure-commandline": "^2.32.0",
+    "allure-playwright": "^3.0.9",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.1.3",
