@@ -66,10 +66,12 @@ export default function SkillsPage() {
                   : 'text-gray-300 border-transparent'
               }`}
               onClick={() => setSelectedTab(tab)}
-              data-testid={`tab-${tab.toLowerCase()}`}
+              data-testid={`tab-${tab.toLowerCase().replace(/\s+/g, '-')}`}
               role="tab"
               aria-selected={selectedTab === tab}
-              aria-controls={`tab-panel-${tab.toLowerCase()}`}
+              aria-controls={`tab-panel-${tab
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {tab}
             </button>
@@ -89,13 +91,17 @@ export default function SkillsPage() {
             <h3
               className="text-xl sm:text-4xl font-bold text-gray-300 mb-4"
               id={`subcategory-title-${subIndex}`}
-              data-testid={`subcategory-title-${subIndex}`}
+              data-testid={`subcategory-title-${subcategory.name
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {subcategory.name}
             </h3>
             <div
               className="flex flex-wrap gap-4 justify-center"
-              data-testid={`subcategory-items-${subIndex}`}
+              data-testid={`subcategory-items-${subcategory.name
+                .toLowerCase()
+                .replace(/\s+/g, '-')}`}
             >
               {subcategory.items.map(({ text, description }, itemIndex) => (
                 <SkillButton
@@ -104,7 +110,6 @@ export default function SkillsPage() {
                   description={description}
                   isActive={activeSkill === text}
                   onClick={() => handleSkillClick(text)}
-                  testId={`skill-button-${text.toLowerCase()}`}
                   aria-pressed={activeSkill === text}
                 />
               ))}
