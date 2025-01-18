@@ -11,7 +11,7 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
-    "test:allure:generate": "allure generate allure-results --clean -o allure-report",
+    "test:allure:generate": "allure generate allure-results -o allure-report --clean=false",
     "test:allure:open": "npm run test:allure:generate && allure open allure-report"
   },
   "dependencies": {

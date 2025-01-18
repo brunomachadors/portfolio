@@ -35,11 +35,23 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Cache Allure Results
+        uses: actions/cache@v3
+        with:
+          path: allure-results
+          key: ${{ runner.os }}-allure-results
+          restore-keys: |
+            ${{ runner.os }}-allure-results
+
       - name: Generate Allure Report
-        run: npm run test:allure:generate
+        run: |
+          rm -rf allure-report
+          allure generate allure-results -o allure-report --clean=false
 
       - name: Deploy Allure Report to GitHub Pages
         if: ${{ success() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
