@@ -38,9 +38,6 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
-      - name: Generate Allure Report
-        run: allure generate allure-results -o allure-report --clean=false
-
       - name: Deploy Allure Report to GitHub Pages
         if: ${{ success() }}
         run: |
@@ -49,7 +46,8 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git fetch origin
           git checkout gh-pages || git checkout --orphan gh-pages
+          rm -rf *
           cp -r allure-report/* .
           git add .
           git commit -m "Update Allure Report"
-          git push origin gh-pages
+          git push origin gh-pages --force
