@@ -47,13 +47,13 @@ export default function ContactPage() {
       className="flex flex-col items-center justify-around min-h-screen p-6 bg-gradient-to-b"
       role="main"
       aria-labelledby="contact-page-title"
-      data-test-id="contact-page"
+      data-testid="contact-page"
     >
       <div className="flex flex-col items-center w-full max-w-4xl">
         <h1
           className="text-4xl font-bold mb-6 text-yellow-500 flex items-center gap-2"
           id="contact-page-title"
-          data-test-id="contact-title"
+          data-testid="contact-title"
         >
           <FiMail />
           Contact Me
@@ -62,7 +62,7 @@ export default function ContactPage() {
         <form
           onSubmit={handleSubmit}
           className="w-full sm:w-3/4 border border-white p-8 rounded-lg shadow-md"
-          data-test-id="contact-form"
+          data-testid="contact-form"
           aria-labelledby="contact-page-title"
         >
           <div className="mb-6">
@@ -78,7 +78,7 @@ export default function ContactPage() {
               name="name"
               required
               className="w-full px-4 py-3 border border-white bg-black rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              data-test-id="contact-name"
+              data-testid="contact-name"
             />
           </div>
           <div className="mb-6">
@@ -94,7 +94,7 @@ export default function ContactPage() {
               name="email"
               required
               className="w-full px-4 py-3 border border-white bg-black rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              data-test-id="contact-email"
+              data-testid="contact-email"
             />
           </div>
           <div className="mb-6">
@@ -110,7 +110,7 @@ export default function ContactPage() {
               rows={6}
               required
               className="w-full px-4 py-3 border border-white bg-black rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              data-test-id="contact-message"
+              data-testid="contact-message"
             ></textarea>
           </div>
           <div className="flex flex-col items-center">
@@ -122,7 +122,7 @@ export default function ContactPage() {
             {isSubmitted && (
               <div
                 className="mt-4 bg-yellow-500 text-black px-4 py-2 rounded-lg shadow-lg"
-                data-test-id="success-message"
+                data-testid="success-message"
               >
                 Thank you! Your message has been sent successfully.
               </div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
 
       <div
         className="flex flex-col items-center mb-12"
-        data-test-id="follow-me-section"
+        data-testid="follow-me-section"
         aria-labelledby="follow-me-title"
       >
         <h2
@@ -148,7 +148,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            data-test-id="social-instagram"
+            data-testid="social-instagram"
             className="hover:scale-110 transition transform"
           >
             <Image
@@ -163,7 +163,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            data-test-id="social-linkedin"
+            data-testid="social-linkedin"
             className="hover:scale-110 transition transform"
           >
             <Image
@@ -178,7 +178,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            data-test-id="social-github"
+            data-testid="social-github"
             className="hover:scale-110 transition transform"
           >
             <Image
@@ -193,7 +193,7 @@ export default function ContactPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Medium"
-            data-test-id="social-medium"
+            data-testid="social-medium"
             className="hover:scale-110 transition transform"
           >
             <Image
@@ -206,7 +206,7 @@ export default function ContactPage() {
           <a
             href="mailto:brunomachadors@gmail.com"
             aria-label="Email"
-            data-test-id="social-email"
+            data-testid="social-email"
             className="hover:scale-110 transition transform"
           >
             <Image src="/icons/email.png" alt="Email" width={80} height={80} />

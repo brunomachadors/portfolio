@@ -9,11 +9,9 @@ export class HomePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.titleLocator = page.locator('[data-test-id="home-title"]');
-    this.subtitleLocator = page.locator('[data-test-id="home-description"]');
-    this.startButtonLocator = page.locator(
-      '[data-test-id="home-start-button"]'
-    );
+    this.titleLocator = page.getByTestId('home-title');
+    this.subtitleLocator = page.getByTestId('home-description');
+    this.startButtonLocator = page.getByTestId('home-start-button');
   }
 
   async navigateToHome() {

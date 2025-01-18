@@ -63,7 +63,7 @@ export default function MediumFeed() {
     return (
       <div
         className="flex items-center justify-center min-h-screen"
-        data-test-id="loading-spinner"
+        data-testid="loading-spinner"
         aria-live="polite"
       >
         <LoadingSpinner size="w-16 h-16" color="fill-yellow-400" />
@@ -86,19 +86,19 @@ export default function MediumFeed() {
       className="flex flex-col items-center justify-start min-h-screen p-4"
       role="main"
       aria-labelledby="medium-feed-title"
-      data-test-id="medium-feed-main"
+      data-testid="medium-feed-main"
     >
       <h1
         className="text-4xl font-bold mb-6 text-yellow-500"
         id="medium-feed-title"
-        data-test-id="medium-feed-title"
+        data-testid="medium-feed-title"
       >
         My Medium Posts
       </h1>
 
       <div
         className="mb-6 w-full max-w-5xl px-4"
-        data-test-id="filter-tags-container"
+        data-testid="filter-tags-container"
       >
         <div className="flex flex-wrap items-center gap-2 sm:gap-4 justify-center">
           {tags.map((tag, index) => (
@@ -110,7 +110,7 @@ export default function MediumFeed() {
                   : 'text-gray-300 border-transparent'
               }`}
               onClick={() => setSelectedTag(tag)}
-              data-test-id={`filter-tag-${tag.toLowerCase()}`}
+              data-testid={`filter-tag-${tag.toLowerCase()}`}
               aria-pressed={selectedTag === tag}
             >
               {tag}
@@ -121,19 +121,19 @@ export default function MediumFeed() {
 
       <div
         className="grid grid-cols-1 gap-8 w-full max-w-4xl"
-        data-test-id="posts-grid"
+        data-testid="posts-grid"
       >
         {filteredPosts.map((post, index) => (
           <div
             key={index}
             className="flex flex-col border border-yellow-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow p-6"
-            data-test-id={`post-item-${index}`}
+            data-testid={`post-item-${index}`}
             aria-labelledby={`post-title-${index}`}
           >
             {post.thumbnail && (
               <div
                 className="relative w-full h-64"
-                data-test-id={`post-thumbnail-${index}`}
+                data-testid={`post-thumbnail-${index}`}
               >
                 <Image
                   src={post.thumbnail}
@@ -145,37 +145,37 @@ export default function MediumFeed() {
             )}
             <div
               className="p-6 flex flex-col justify-between flex-grow"
-              data-test-id={`post-content-${index}`}
+              data-testid={`post-content-${index}`}
             >
               <h2
                 className="text-2xl font-semibold mb-4 text-yellow-500 text-center"
                 id={`post-title-${index}`}
-                data-test-id={`post-title-${index}`}
+                data-testid={`post-title-${index}`}
               >
                 {post.title}
               </h2>
               <p
                 className="text-white text-base mb-6"
-                data-test-id={`post-excerpt-${index}`}
+                data-testid={`post-excerpt-${index}`}
               >
                 {extractFirstParagraph(post.content)}
               </p>
               <div className="mt-auto">
                 <p
                   className="text-gray-400 text-sm mb-4 text-center"
-                  data-test-id={`post-meta-${index}`}
+                  data-testid={`post-meta-${index}`}
                 >
                   {new Date(post.pubDate).toLocaleDateString()} by {post.author}
                 </p>
                 <div
                   className="flex flex-wrap gap-2 mb-6 items-center justify-center"
-                  data-test-id={`post-tags-${index}`}
+                  data-testid={`post-tags-${index}`}
                 >
                   {post.categories.map((category, idx) => (
                     <span
                       key={idx}
                       className="bg-yellow-500 text-black text-sm px-3 py-1 rounded"
-                      data-test-id={`post-tag-${index}-${idx}`}
+                      data-testid={`post-tag-${index}-${idx}`}
                     >
                       {category}
                     </span>
@@ -183,7 +183,7 @@ export default function MediumFeed() {
                 </div>
                 <div
                   className="flex justify-center"
-                  data-test-id={`post-read-more-${index}`}
+                  data-testid={`post-read-more-${index}`}
                 >
                   <LinkButton
                     href={post.link}
@@ -199,18 +199,18 @@ export default function MediumFeed() {
       <div
         className="w-1/4 border-t border-gray-500 opacity-50 mt-12 mb-8"
         aria-hidden="true"
-        data-test-id="posts-divider"
+        data-testid="posts-divider"
       />
 
       {/* Go to Contacts Button */}
       <div
-        data-test-id="contacts-button-container"
+        data-testid="contacts-button-container"
         aria-label="Navigate to Contacts section"
       >
         <LinkButton
           text="Go to Contacts"
           href="/contacts"
-          data-test-id="contacts-button"
+          data-testid="contacts-button"
           aria-label="Navigate to Contacts page"
         />
       </div>

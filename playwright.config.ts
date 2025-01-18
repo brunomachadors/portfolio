@@ -20,7 +20,7 @@ export default defineConfig({
   },
 
   use: {
-    baseURL: process.env.BASE_URL || 'https://bruno-portfolio-eight.vercel.app',
+    baseURL: 'http://localhost:3000/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
