@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -37,9 +38,12 @@ jobs:
       - name: Generate Allure Report
         run: npm run test:allure:generate
 
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with:
-          name: allure-report
-          path: allure-report/
-          retention-days: 30
+      - name: Deploy Allure Report to GitHub Pages
+        if: ${{ success() }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git checkout --orphan gh-pages
+          git --work-tree=allure-report add --all
+          git --work-tree=allure-report commit -m "Deploy Allure Report"
+          git push -f origin gh-pages
