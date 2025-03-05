@@ -23,6 +23,7 @@ export const HEADER_DATA = {
   ],
 };
 
+// About Page Data
 export const ABOUT_DATA = {
   aboutTitle: 'About Me',
   aboutDescription:
@@ -42,14 +43,32 @@ export const ABOUT_DATA = {
         'I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over 17 years of experience in testing, I have specialized in test automation since 2017.',
     },
     {
-      title: 'Focus on Shift Left Practices',
-      content:
-        'I actively promote early involvement of QA in the development process, collaborating with developers to implement test frameworks and identify potential issues before they arise.',
-    },
-    {
       title: 'Collaboration and Mentoring',
       content:
         'I value building strong relationships with colleagues, fostering a collaborative work environment, and mentoring professionals in the testing field.',
+    },
+    {
+      title: 'Teaching Experience',
+      content:
+        'Teacher at Mindera Code Academy since January 2024. I introduced students to software quality, covering functional and non-functional testing, and API testing with Postman. As a final project, students tested the Petsauro project, applying test design and execution skills.',
+    },
+    {
+      title: 'Educational Background - Technology',
+      content: [
+        'University: União Educacional de Brasília (UNEB)',
+        'Course: Technologist in Information Technology',
+        'Period: 2008 - 2010',
+        'Description: Emphasis on Data Processing and Programming.',
+      ],
+    },
+    {
+      title: 'Educational Background - Game Development',
+      content: [
+        'University: Pontifícia Universidade Católica do Rio Grande do Sul (PUCRS)',
+        'Course: Postgraduate in Game Development',
+        'Period: 2011 - 2012',
+        'Focused on Game Design, Programming, and 3D Modeling.',
+      ],
     },
   ],
 };
