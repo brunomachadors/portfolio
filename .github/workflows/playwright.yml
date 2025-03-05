@@ -41,8 +41,8 @@ jobs:
         run: |
           npm run test:allure:generate
           if [ ! -d "allure-report" ]; then
-            echo "Allure report was not generated!"
-            exit 1
+            echo "Allure report was not generated, skipping deployment."
+            exit 0
           fi
 
       - name: Deploy Allure Report to GitHub Pages
@@ -50,7 +50,7 @@ jobs:
         run: |
           if [ ! -d "allure-report" ]; then
             echo "Allure report directory does not exist, skipping deployment."
-            exit 1
+            exit 0
           fi
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
