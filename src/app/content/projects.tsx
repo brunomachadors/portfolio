@@ -83,6 +83,19 @@ export const PROJECTS: Project[] = [
         content:
           'Developed with Next.js, styled-components, React, and TypeScript for the frontend, and Python with Flask for the backend.',
       },
+      {
+        title: 'Visit the Project',
+        content: (
+          <a
+            href="https://petsauro.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Petsauro Website
+          </a>
+        ),
+      },
     ],
   },
   {

@@ -15,21 +15,23 @@ export const sections = [
       </div>
     ),
   },
-
   {
     title: 'My Journey into QA',
     content:
       'I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over 17 years of experience in testing, I have specialized in test automation since 2017.',
   },
   {
-    title: 'Focus on Shift Left Practices',
-    content:
-      'I actively promote early involvement of QA in the development process, collaborating with developers to implement test frameworks and identify potential issues before they arise.',
-  },
-  {
     title: 'Collaboration and Mentoring',
     content:
       'I value building strong relationships with colleagues, fostering a collaborative work environment, and mentoring professionals in the testing field.',
+  },
+  {
+    title: 'Teaching Experience',
+    content: `
+      Teacher at Mindera Code Academy since January 2024. I introduced students to software quality, covering functional and non-functional testing, and API testing with Postman.
+
+      As a final project, students tested the Petsauro project, applying test design and execution skills.
+    `,
   },
   {
     title: 'Educational Background - Technology',
