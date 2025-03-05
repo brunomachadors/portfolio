@@ -7,7 +7,7 @@ export const EXPERIENCES = [
     role: 'Test Developer Cross Teams',
     location: 'Porto - Portugal',
     shortDescription:
-      'Software Developer in Test for Avios/IAGL projects (Exchange, Wallet, Enrolment, My Accounts at Avios.com), QA Engineer for Burberry, and Mentor for the Neurodiversity Program.',
+      'Software Developer in Test for Avios/IAGL projects (Exchange, Wallet, Enrolment, My Accounts at Avios.com), QA Engineer for Burberry, Mentor for the Neurodiversity Program, and Teacher at Mindera Code Academy.',
     fullDescription: [
       {
         position: 'Software Developer In Test | Cross-Teams',
@@ -26,10 +26,32 @@ export const EXPERIENCES = [
         ],
       },
       {
+        position: 'Teacher',
+        project: 'Mindera Code Academy',
+        startDate: 'January 2025',
+        endDate: 'Present',
+        description: `
+          Taught an introduction to software quality, covering both functional and non-functional testing. 
+          The course focused on key testing concepts, helping students understand different testing approaches.
+      
+          We explored functional and non-functional testing methodologies, along with a brief introduction to 
+          API testing using Postman. 
+      
+          As a final project, students applied their knowledge by testing the Petsauro project, demonstrating their 
+          ability to analyze and execute test scenarios.
+        `,
+        gallery: [
+          'https://res.cloudinary.com/dtglidvcw/image/upload/v1741173239/Portifolio/Mindera/warmup1.jpg',
+          'https://res.cloudinary.com/dtglidvcw/image/upload/v1741173239/Portifolio/Mindera/warmup2.jpg',
+          'https://res.cloudinary.com/dtglidvcw/image/upload/v1741173239/Portifolio/Mindera/warmup3.jpg',
+        ],
+      },
+
+      {
         position: 'Test Developer',
         project: 'Burberry E-Commerce',
         startDate: 'June 2021',
-        endDate: '2022',
+        endDate: 'September 2022',
         description: `
           Worked as a Test Engineer at Mindera, dedicated to the Burberry client. My main focus was on automating tests for the post-purchase process in their e-commerce platform, validating key stages such as payment, delivery, stock management, and more.
 
