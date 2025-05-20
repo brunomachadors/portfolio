@@ -10,16 +10,16 @@ export const EXPERIENCES = [
       'Software Developer in Test for Avios/IAGL projects (Exchange, Wallet, Enrolment, My Accounts at Avios.com), QA Engineer for Burberry, Mentor for the Neurodiversity Program, and Teacher at Mindera Code Academy.',
     fullDescription: [
       {
-        position: 'Test Lead,
+        position: 'Test Lead',
         project: 'YNAP',
         startDate: 'May 2025',
         endDate: 'Present',
         description: `
           Currently acting as QAE Lead in a backend testing project for a YNAP client. My role involves leading the validation of RESTful APIs using a custom Java-based framework built with Rest Assured. I work closely with developers and product teams to ensure high-quality integrations and reliable backend services.
         `,
-        gallery: []
-        ,
+        gallery: [],
       },
+
       {
         position: 'Software Developer In Test | Cross-Teams',
         project: 'Avios/IAGL Loyalty',
