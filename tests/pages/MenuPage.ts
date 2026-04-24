@@ -8,7 +8,7 @@ export class MenuPage {
   }
 
   async navigateToHome() {
-    await this.page.goto('', { waitUntil: 'commit' });
+    await this.page.goto('', { waitUntil: 'networkidle' });
   }
 
   async validateMenuItemVisible(menuItem: string) {
@@ -24,12 +24,28 @@ export class MenuPage {
   async validateURL(menuItem: string) {
     const expectedURL = menuItem === 'home' ? '/' : `/${menuItem}`;
     await expect(this.page).toHaveURL(expectedURL);
+    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(300);
   }
 
   async openMobileMenu() {
-    const toggle = await this.page.getByTestId('menu-toggle');
-    await this.page.waitForTimeout(300);
-    await toggle.click();
+    const toggle = this.page.getByTestId('menu-toggle');
+    const firstMobileItem = this.page.getByTestId('mobile-menu-link-home');
+
+    for (let attempt = 0; attempt < 3; attempt++) {
+      if (await firstMobileItem.isVisible()) {
+        break;
+      }
+
+      await this.page.evaluate(() => window.scrollTo(0, 0));
+      await this.page.waitForTimeout(150);
+      await toggle.scrollIntoViewIfNeeded();
+      await expect(toggle).toBeVisible();
+      await toggle.click();
+      await this.page.waitForTimeout(400);
+    }
+
+    await expect(firstMobileItem).toBeVisible();
   }
 
   async validateMobileMenuItemVisible(menuItem: string) {

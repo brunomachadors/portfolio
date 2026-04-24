@@ -21,7 +21,7 @@ test.describe('Footer', () => {
     }
 
     await test.step('Copyright', async () => {
-      await footerPage.validateCopyrightText('© 2024 Bruno Machado.');
+      await footerPage.validateCurrentYearCopyright();
     });
   });
 });

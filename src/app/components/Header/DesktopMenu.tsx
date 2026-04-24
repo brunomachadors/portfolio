@@ -9,6 +9,7 @@ const menuItems = [
   { name: 'Resume', href: '/resume' },
   { name: 'Skills', href: '/skills' },
   { name: 'Projects', href: '/projects' },
+  { name: 'Talks', href: '/talks' },
   { name: 'Posts', href: '/posts' },
   { name: 'Contacts', href: '/contacts' },
 ];

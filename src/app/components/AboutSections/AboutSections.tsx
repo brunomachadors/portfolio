@@ -32,14 +32,13 @@ export default function AboutSections() {
       {sections.map((section, index) => (
         <section
           key={index}
-          className="w-full pb-4 border-b border-yellow-500 cursor-pointer last:border-none px-0 mx-0"
+          className="w-full pb-4 border-b border-yellow-500 last:border-none px-0 mx-0"
           data-testid={`section-${index}`}
-          onClick={() => toggleSection(index)}
         >
-          <header
-            className="flex justify-between items-center"
-            role="button"
-            tabIndex={0}
+          <button
+            type="button"
+            className="flex w-full justify-between items-center text-left"
+            onClick={() => toggleSection(index)}
             aria-expanded={openSection === index}
             aria-controls={`section-content-${index}`}
             data-testid={`section-toggle-${index}`}
@@ -59,7 +58,7 @@ export default function AboutSections() {
             >
               ▼
             </span>
-          </header>
+          </button>
           {openSection === index && (
             <div
               className="mt-2 text-gray-300 text-base sm:text-lg"

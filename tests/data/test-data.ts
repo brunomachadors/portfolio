@@ -1,8 +1,22 @@
 // Home Page Data
 export const HOME_DATA = {
   title: 'Welcome to my Portfolio',
-  subtitle: 'Explore my skills, experience, and projects as a QA Engineer.',
+  subtitle:
+    'Explore my skills, experience, projects, and community work as a QA Engineer.',
   startButtonText: 'Start here',
+  testimonialsTitle: 'Testimonials',
+  educationTitle: 'Education',
+  testimonialTitles: [
+    'A complete learning journey',
+    'Essential for my QA perspective',
+    'Great mentor, excellent friend',
+  ],
+  educationTitles: [
+    'Warm Up Manual Testing',
+    'Warm Up Automated Tests - Playwright',
+    'Backend Testing - Postman + Playwright',
+    'Non-Functional Tests',
+  ],
 };
 
 // Footer Data
@@ -18,6 +32,7 @@ export const HEADER_DATA = {
     'resume',
     'skills',
     'projects',
+    'talks',
     'posts',
     'contacts',
   ],

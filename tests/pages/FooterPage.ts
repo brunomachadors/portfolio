@@ -20,11 +20,14 @@ export class FooterPage {
   async validateLinkVisible(linkTestId: string) {
     const link = this.page.getByTestId(`footer-link-${linkTestId}`);
     await expect(link).toBeVisible();
-    await expect(link).toHaveAttribute('href', expect.stringContaining('http'));
+    const expectedHref =
+      linkTestId === 'email' ? expect.stringContaining('mailto:') : expect.stringContaining('http');
+    await expect(link).toHaveAttribute('href', expectedHref);
   }
 
-  async validateCopyrightText(expectedText: string) {
+  async validateCurrentYearCopyright() {
+    const currentYear = new Date().getFullYear();
     await expect(this.copyrightText).toBeVisible();
-    await expect(this.copyrightText).toHaveText(expectedText);
+    await expect(this.copyrightText).toHaveText(`© ${currentYear} Bruno Machado.`);
   }
 }

@@ -6,6 +6,7 @@ export interface Project {
   description: string;
   style: ProjectStyle;
   logo: string;
+  logoClassName?: string;
   sections: {
     title: string;
     content: string | JSX.Element;
@@ -13,6 +14,49 @@ export interface Project {
 }
 
 export const PROJECTS: Project[] = [
+  {
+    title: 'Adventurers Guild',
+    description:
+      'A fantasy-themed API portal inspired by Dungeons & Dragons, designed as an interactive codex with guides, documentation, and immersive UI for exploring RPG resources and character systems.',
+    style: 'AdventurersGuild',
+    logo: 'https://res.cloudinary.com/dtglidvcw/image/upload/v1776961236/adventurers/ChatGPT_Image_26_de_mar._de_2026_10_47_27_v6yuq8.png',
+    logoClassName: 'scale-150 sm:scale-[1.85]',
+    sections: [
+      {
+        title: 'Overview',
+        content:
+          'Adventurers Guild is an API portal with an immersive frontend inspired by tabletop RPGs and Dungeons & Dragons, presenting technical resources through a worldbuilding-oriented experience.',
+      },
+      {
+        title: 'Experience Direction',
+        content:
+          'The documentation is treated like an illustrated codex, guiding users through attributes, skills, classes, species, spells, equipment, and character systems in a more exploratory way.',
+      },
+      {
+        title: 'Visual Style',
+        content:
+          'The interface leans into a fantasy codex and medieval grimoire aesthetic, using parchment surfaces, leather tones, ornamental framing, and warm contrast to reinforce the setting.',
+      },
+      {
+        title: 'Current Status',
+        content:
+          'More details, links, and final visual assets will be added later as the project evolves.',
+      },
+      {
+        title: 'Visit the Project',
+        content: (
+          <a
+            href="https://adventurers-guild-api.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Adventurers Guild Website
+          </a>
+        ),
+      },
+    ],
+  },
   {
     title: 'BugBuster',
     description:

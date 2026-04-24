@@ -1,20 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SkillButton from '../components/Button/SkillButton';
 import { SKILLS } from '../content/skills';
 import LinkButton from '../components/Button/LinkButton';
-import LoadingSpinner from '../components/Loading/Loading';
 
 export default function SkillsPage() {
   const [selectedTab, setSelectedTab] = useState<string>('All'); // Default tab
   const [activeSkill, setActiveSkill] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 500); // Simulating data loading
-    return () => clearTimeout(timeout);
-  }, []);
 
   const categories =
     selectedTab === 'All'
@@ -27,17 +20,6 @@ export default function SkillsPage() {
   const handleSkillClick = (skill: string) => {
     setActiveSkill((prev) => (prev === skill ? null : skill));
   };
-
-  if (isLoading) {
-    return (
-      <main
-        className="flex items-center justify-center min-h-screen"
-        aria-label="Loading Skills"
-      >
-        <LoadingSpinner />
-      </main>
-    );
-  }
 
   return (
     <main

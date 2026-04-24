@@ -1,32 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PROJECTS } from '../content/projects';
 import { projectStyles } from '../styles/projectStyles';
 import LinkButton from '../components/Button/LinkButton';
-import LoadingSpinner from '../components/Loading/Loading';
 
 export default function ProjectsPage() {
-  const [isClient, setIsClient] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const toggleSection = (title: string, sectionIndex: number) => {
     const key = `${title}-${sectionIndex}`;
-    setOpenSection(openSection === key ? null : key);
+    setOpenSection((currentSection) => (currentSection === key ? null : key));
   };
-
-  if (!isClient) {
-    return (
-      <div>
-        <LoadingSpinner />
-      </div>
-    );
-  }
 
   return (
     <main
@@ -65,7 +51,9 @@ export default function ProjectsPage() {
                 alt={`${project.title} logo`}
                 width={300}
                 height={300}
-                className="rounded-lg"
+                className={`rounded-lg object-contain ${
+                  project.logoClassName ?? ''
+                }`}
                 aria-labelledby={`project-title-${projectIndex}`}
               />
             </div>
@@ -96,8 +84,9 @@ export default function ProjectsPage() {
                   }`}
                   data-testid={`project-section-${projectIndex}-${sectionIndex}`}
                 >
-                  <div
-                    className="flex justify-between items-center cursor-pointer"
+                  <button
+                    type="button"
+                    className="flex w-full justify-between items-center text-left"
                     onClick={() => toggleSection(project.title, sectionIndex)}
                     aria-expanded={
                       openSection === `${project.title}-${sectionIndex}`
@@ -117,7 +106,7 @@ export default function ProjectsPage() {
                     >
                       ▼
                     </span>
-                  </div>
+                  </button>
                   {openSection === `${project.title}-${sectionIndex}` && (
                     <div
                       id={`section-content-${projectIndex}-${sectionIndex}`}
@@ -134,17 +123,17 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* Go to Posts Button */}
+      {/* Go to Talks Button */}
       <div
         className="mt-8"
-        data-testid="posts-button-container"
-        aria-label="Navigate to Posts Page"
+        data-testid="talks-button-container"
+        aria-label="Navigate to Talks page"
       >
         <LinkButton
-          text="Go to Posts"
-          href="/posts"
-          data-testid="posts-button"
-          aria-label="Go to Posts page"
+          text="Go to Talks"
+          href="/talks"
+          data-testid="talks-button"
+          aria-label="Go to Talks page"
         />
       </div>
     </main>

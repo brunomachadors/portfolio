@@ -1,7 +1,9 @@
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer
-      className="w-full flex flex-col items-center justify-start gap-6 p-4 border-t border-white/20"
+      className="w-full flex flex-col items-center justify-start gap-6 bg-black p-4 border-t border-white/20"
       data-testid="footer-container"
     >
       <div
@@ -62,7 +64,7 @@ export default function Footer() {
         className="text-sm uppercase text-center px-4"
         data-testid="footer-copyright"
       >
-        © 2024 Bruno Machado.
+        © {currentYear} Bruno Machado.
       </p>
     </footer>
   );
