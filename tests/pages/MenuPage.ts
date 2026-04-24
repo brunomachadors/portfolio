@@ -8,7 +8,7 @@ export class MenuPage {
   }
 
   async navigateToHome() {
-    await this.page.goto('', { waitUntil: 'commit' });
+    await this.page.goto('', { waitUntil: 'networkidle' });
   }
 
   async validateMenuItemVisible(menuItem: string) {
@@ -30,7 +30,6 @@ export class MenuPage {
 
   async openMobileMenu() {
     const toggle = this.page.getByTestId('menu-toggle');
-    await expect(toggle).toBeVisible();
     const firstMobileItem = this.page.getByTestId('mobile-menu-link-home');
 
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -38,7 +37,11 @@ export class MenuPage {
         break;
       }
 
-      await toggle.tap();
+      await this.page.evaluate(() => window.scrollTo(0, 0));
+      await this.page.waitForTimeout(150);
+      await toggle.scrollIntoViewIfNeeded();
+      await expect(toggle).toBeVisible();
+      await toggle.click();
       await this.page.waitForTimeout(400);
     }
 
