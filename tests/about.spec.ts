@@ -37,4 +37,20 @@ test.describe('About Page', () => {
       });
     }
   });
+
+  test('Section keyboard interaction', async ({ page }) => {
+    const aboutPage = new AboutPage(page);
+
+    await aboutPage.navigateToAbout();
+    await aboutPage.validatePageLoaded();
+
+    await test.step('Open first section with keyboard', async () => {
+      await aboutPage.focusSectionToggle(0);
+      await page.keyboard.press('Enter');
+      await aboutPage.validateSectionContentVisible(
+        0,
+        ABOUT_DATA.sections[0].content
+      );
+    });
+  });
 });

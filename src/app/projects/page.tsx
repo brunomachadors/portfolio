@@ -1,32 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { PROJECTS } from '../content/projects';
 import { projectStyles } from '../styles/projectStyles';
 import LinkButton from '../components/Button/LinkButton';
-import LoadingSpinner from '../components/Loading/Loading';
 
 export default function ProjectsPage() {
-  const [isClient, setIsClient] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   const toggleSection = (title: string, sectionIndex: number) => {
     const key = `${title}-${sectionIndex}`;
-    setOpenSection(openSection === key ? null : key);
+    setOpenSection((currentSection) => (currentSection === key ? null : key));
   };
-
-  if (!isClient) {
-    return (
-      <div>
-        <LoadingSpinner />
-      </div>
-    );
-  }
 
   return (
     <main
@@ -98,8 +84,9 @@ export default function ProjectsPage() {
                   }`}
                   data-testid={`project-section-${projectIndex}-${sectionIndex}`}
                 >
-                  <div
-                    className="flex justify-between items-center cursor-pointer"
+                  <button
+                    type="button"
+                    className="flex w-full justify-between items-center text-left"
                     onClick={() => toggleSection(project.title, sectionIndex)}
                     aria-expanded={
                       openSection === `${project.title}-${sectionIndex}`
@@ -119,7 +106,7 @@ export default function ProjectsPage() {
                     >
                       ▼
                     </span>
-                  </div>
+                  </button>
                   {openSection === `${project.title}-${sectionIndex}` && (
                     <div
                       id={`section-content-${projectIndex}-${sectionIndex}`}

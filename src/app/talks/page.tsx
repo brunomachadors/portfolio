@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LinkButton from '../components/Button/LinkButton';
 
 interface TalkImage {
@@ -203,6 +203,9 @@ export default function TalksPage() {
   const [expandedTalks, setExpandedTalks] = useState<Record<number, boolean>>(
     {}
   );
+  const modalCloseButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousFocusedElementRef = useRef<HTMLElement | null>(null);
+  const previousBodyOverflowRef = useRef<string>('');
 
   const allTags = Array.from(
     new Set(SORTED_TALKS.flatMap((talk) => talk.tags))
@@ -254,9 +257,15 @@ export default function TalksPage() {
       return;
     }
 
+    previousFocusedElementRef.current = document.activeElement as HTMLElement | null;
+    previousBodyOverflowRef.current = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    modalCloseButtonRef.current?.focus();
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setSelectedImage(null);
+        return;
       }
 
       if (event.key === 'ArrowLeft') {
@@ -278,6 +287,35 @@ export default function TalksPage() {
           talkIndex: selectedImage.talkIndex,
           imageIndex: nextIndex,
         });
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const focusableElements = [
+          modalCloseButtonRef.current,
+          document.querySelector<HTMLButtonElement>(
+            '[data-testid="talk-image-modal-prev"]'
+          ),
+          document.querySelector<HTMLButtonElement>(
+            '[data-testid="talk-image-modal-next"]'
+          ),
+        ].filter((element): element is HTMLButtonElement => element !== null);
+
+        if (focusableElements.length === 0) {
+          return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        const activeElement = document.activeElement;
+
+        if (event.shiftKey && activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
       }
     };
 
@@ -285,6 +323,8 @@ export default function TalksPage() {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousBodyOverflowRef.current;
+      previousFocusedElementRef.current?.focus();
     };
   }, [filteredTalks, selectedImage]);
 
@@ -480,6 +520,7 @@ export default function TalksPage() {
               onClick={() => setSelectedImage(null)}
               aria-label="Close expanded image"
               data-testid="talk-image-modal-close"
+              ref={modalCloseButtonRef}
             >
               ×
             </button>

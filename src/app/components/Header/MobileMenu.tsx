@@ -23,7 +23,7 @@ export default function MobileMenu({ closeMenu }: MobileMenuProps) {
 
   return (
     <nav
-      className="absolute top-16 left-0 w-full h-full p-6 flex flex-col items-start gap-4 lg:hidden bg-background"
+      className="fixed inset-0 z-[60] overflow-y-auto bg-black p-6 pt-24 flex flex-col items-start gap-4 lg:hidden"
       aria-label="Mobile Navigation"
     >
       {menuItems.map((item) => (

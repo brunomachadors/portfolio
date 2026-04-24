@@ -40,7 +40,7 @@ export class AboutPage {
   }
 
   async clickSession(index: number) {
-    const session = this.page.getByTestId(`section-${index}`);
+    const session = this.page.getByTestId(`section-toggle-${index}`);
     await session.click();
 
     const contentLocator = this.page.getByTestId(`section-content-${index}`);
@@ -49,6 +49,10 @@ export class AboutPage {
       await session.click();
       await this.page.waitForTimeout(300);
     }
+  }
+
+  async focusSectionToggle(index: number) {
+    await this.page.getByTestId(`section-toggle-${index}`).focus();
   }
 
   async validateSectionTitleVisible(index: number, expectedTitle: string) {

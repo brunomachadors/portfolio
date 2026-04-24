@@ -4,14 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { EXPERIENCES } from '@/app/content/experiences';
-import LoadingSpinner from '@/app/components/Loading/Loading';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function ExperiencePage() {
   const params = useParams();
   const companyYear = params.companyYear;
 
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<{
     projectIndex: number;
     imageIndex: number;
@@ -19,15 +17,9 @@ export default function ExperiencePage() {
   const [expandedProjects, setExpandedProjects] = useState<
     Record<number, boolean>
   >({});
-
-  useEffect(() => {
-    // Simulating a loading delay for demonstration
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, []);
+  const modalCloseButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousFocusedElementRef = useRef<HTMLElement | null>(null);
+  const previousBodyOverflowRef = useRef<string>('');
 
   const experience = EXPERIENCES.find(
     (exp) =>
@@ -77,9 +69,15 @@ export default function ExperiencePage() {
       return;
     }
 
+    previousFocusedElementRef.current = document.activeElement as HTMLElement | null;
+    previousBodyOverflowRef.current = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    modalCloseButtonRef.current?.focus();
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setSelectedImage(null);
+        return;
       }
 
       if (event.key === 'ArrowLeft') {
@@ -103,6 +101,35 @@ export default function ExperiencePage() {
           projectIndex: selectedImage.projectIndex,
           imageIndex: nextIndex,
         });
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const focusableElements = [
+          modalCloseButtonRef.current,
+          document.querySelector<HTMLButtonElement>(
+            '[data-testid="experience-image-modal-prev"]'
+          ),
+          document.querySelector<HTMLButtonElement>(
+            '[data-testid="experience-image-modal-next"]'
+          ),
+        ].filter((element): element is HTMLButtonElement => element !== null);
+
+        if (focusableElements.length === 0) {
+          return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        const activeElement = document.activeElement;
+
+        if (event.shiftKey && activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
       }
     };
 
@@ -110,21 +137,10 @@ export default function ExperiencePage() {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousBodyOverflowRef.current;
+      previousFocusedElementRef.current?.focus();
     };
   }, [experience, selectedImage]);
-
-  if (isLoading) {
-    return (
-      <div
-        className="flex items-center justify-center min-h-screen"
-        data-testid="loading-state"
-        role="status"
-        aria-label="Loading experience details"
-      >
-        <LoadingSpinner />
-      </div>
-    );
-  }
 
   if (!experience) {
     return (
@@ -303,6 +319,7 @@ export default function ExperiencePage() {
               onClick={() => setSelectedImage(null)}
               aria-label="Close expanded image"
               data-testid="experience-image-modal-close"
+              ref={modalCloseButtonRef}
             >
               ×
             </button>

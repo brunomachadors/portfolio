@@ -1,8 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import LinkButton from './components/Button/LinkButton';
-import LoadingSpinner from './components/Loading/Loading';
 
 const TESTIMONIALS = [
   {
@@ -75,37 +73,14 @@ const educationStatusStyles: Record<string, string> = {
 };
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div
-        className="flex items-center justify-center min-h-screen"
-        data-testid="loading-state"
-        role="status"
-        aria-label="Loading home page content"
-      >
-        <LoadingSpinner />
-      </div>
-    );
-  }
-
   return (
     <main
-      className="min-h-[85vh] px-6 pt-10 sm:px-8"
+      className="min-h-[85vh] px-6 sm:px-8"
       role="main"
       aria-labelledby="page-title"
     >
       <div className="max-w-6xl mx-auto" data-testid="home-container">
-        <section className="flex min-h-[78vh] sm:min-h-[82vh] items-center justify-center">
+        <section className="flex min-h-screen items-center justify-center">
           <div className="text-center max-w-5xl">
             <h1
               id="page-title"
@@ -133,7 +108,7 @@ export default function Home() {
       </div>
 
       <section
-        className="-mx-6 bg-gradient-to-b from-black via-[rgba(250,204,21,0.88)] to-black px-6 py-10 text-white sm:-mx-8 sm:px-8 sm:py-12"
+        className="-mx-6 flex min-h-screen items-center bg-gradient-to-b from-black via-[rgba(250,204,21,0.88)] to-black px-6 py-10 text-white sm:-mx-8 sm:px-8 sm:py-12"
         aria-labelledby="testimonials-title"
         data-testid="testimonials-section"
       >
@@ -187,7 +162,7 @@ export default function Home() {
       </section>
 
       <section
-        className="-mx-6 bg-black px-6 py-14 sm:-mx-8 sm:px-8"
+        className="-mx-6 flex min-h-screen items-center bg-black px-6 py-14 sm:-mx-8 sm:px-8"
         aria-labelledby="education-title"
         data-testid="education-section"
       >
@@ -237,9 +212,14 @@ export default function Home() {
                   {item.description}
                 </p>
 
-                <p className="mt-6 text-xs sm:text-sm uppercase tracking-wide text-gray-400">
+                <a
+                  href="https://minderacodeacademy.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block text-xs sm:text-sm uppercase tracking-wide text-gray-400 underline underline-offset-4 hover:text-yellow-400"
+                >
                   Mindera Code Academy
-                </p>
+                </a>
               </article>
             ))}
           </div>

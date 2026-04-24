@@ -1,30 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { EXPERIENCES } from '../content/experiences';
 import LinkButton from '../components/Button/LinkButton';
-import LoadingSpinner from '../components/Loading/Loading';
 
 export default function Resume() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <main
-        className="flex items-center justify-center min-h-screen"
-        aria-label="Loading Resume"
-      >
-        <LoadingSpinner />
-      </main>
-    );
-  }
-
   return (
     <main
       className="flex flex-col items-center min-h-screen p-8"

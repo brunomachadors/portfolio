@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface MenuItemProps {
   name: string;
   href: string;
@@ -14,7 +16,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   dataTestId,
 }) => {
   return (
-    <a
+    <Link
       href={href}
       aria-label={`Navigate to ${name}`}
       aria-current={isActive ? 'page' : undefined}
@@ -25,6 +27,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({
       onClick={onClick}
     >
       {name}
-    </a>
+    </Link>
   );
 };

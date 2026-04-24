@@ -6,12 +6,16 @@ export class HomePage {
   readonly titleLocator: Locator;
   readonly subtitleLocator: Locator;
   readonly startButtonLocator: Locator;
+  readonly testimonialsSectionLocator: Locator;
+  readonly educationSectionLocator: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.titleLocator = page.getByTestId('home-title');
     this.subtitleLocator = page.getByTestId('home-description');
     this.startButtonLocator = page.getByTestId('home-start-button');
+    this.testimonialsSectionLocator = page.getByTestId('testimonials-section');
+    this.educationSectionLocator = page.getByTestId('education-section');
   }
 
   async navigateToHome() {
@@ -31,5 +35,35 @@ export class HomePage {
   async validateStartButtonVisible() {
     await expect(this.startButtonLocator).toBeVisible();
     await expect(this.startButtonLocator).toHaveText(HOME_DATA.startButtonText);
+  }
+
+  async validateTestimonialsSectionVisible() {
+    await expect(this.testimonialsSectionLocator).toBeVisible();
+    await expect(
+      this.page.getByRole('heading', { name: HOME_DATA.testimonialsTitle })
+    ).toBeVisible();
+  }
+
+  async validateTestimonialCardsVisible() {
+    for (const title of HOME_DATA.testimonialTitles) {
+      await expect(
+        this.testimonialsSectionLocator.getByRole('heading', { name: title })
+      ).toBeVisible();
+    }
+  }
+
+  async validateEducationSectionVisible() {
+    await expect(this.educationSectionLocator).toBeVisible();
+    await expect(
+      this.page.getByRole('heading', { name: HOME_DATA.educationTitle })
+    ).toBeVisible();
+  }
+
+  async validateEducationCardsVisible() {
+    for (const title of HOME_DATA.educationTitles) {
+      await expect(
+        this.educationSectionLocator.getByRole('heading', { name: title })
+      ).toBeVisible();
+    }
   }
 }

@@ -14,6 +14,10 @@ test.describe('Menu', () => {
 
     if (isMobile) {
       for (const option of mobileMenuOptions) {
+        await test.step(`Go Home For Mobile: ${option}`, async () => {
+          await menuPage.navigateToHome();
+        });
+
         await test.step(`Open Mobile: ${option}`, async () => {
           await menuPage.openMobileMenu();
         });
