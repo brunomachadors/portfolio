@@ -34,6 +34,7 @@ export const EXPERIENCES = [
           'https://res.cloudinary.com/dtglidvcw/image/upload/v1735601960/Portifolio/Avios/avios1.jpg',
           'https://res.cloudinary.com/dtglidvcw/image/upload/v1735601960/Portifolio/Avios/avios2.jpg',
           'https://res.cloudinary.com/dtglidvcw/image/upload/v1735601960/Portifolio/Avios/avios3.jpg',
+          'https://res.cloudinary.com/dtglidvcw/image/upload/v1777031448/Portifolio/Avios/1F6EC3B4-ACF8-4288-BDCE-67F1BF884082_1_105_c_mqjqqi.jpg',
         ],
       },
       {

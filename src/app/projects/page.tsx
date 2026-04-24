@@ -65,7 +65,9 @@ export default function ProjectsPage() {
                 alt={`${project.title} logo`}
                 width={300}
                 height={300}
-                className="rounded-lg"
+                className={`rounded-lg object-contain ${
+                  project.logoClassName ?? ''
+                }`}
                 aria-labelledby={`project-title-${projectIndex}`}
               />
             </div>
@@ -134,17 +136,17 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* Go to Posts Button */}
+      {/* Go to Talks Button */}
       <div
         className="mt-8"
-        data-testid="posts-button-container"
-        aria-label="Navigate to Posts Page"
+        data-testid="talks-button-container"
+        aria-label="Navigate to Talks page"
       >
         <LinkButton
-          text="Go to Posts"
-          href="/posts"
-          data-testid="posts-button"
-          aria-label="Go to Posts page"
+          text="Go to Talks"
+          href="/talks"
+          data-testid="talks-button"
+          aria-label="Go to Talks page"
         />
       </div>
     </main>
