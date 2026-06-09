@@ -40,4 +40,48 @@ test.describe('Skills', () => {
       }
     });
   });
+
+  test('AI & Agents content', async ({ page }) => {
+    const skillsPage = new SkillsPage(page);
+    const aiCategory = SKILLS.find(
+      ({ category }) => category === 'AI & Agents'
+    );
+
+    if (!aiCategory) {
+      throw new Error('AI & Agents category was not found in skills content.');
+    }
+
+    await test.step('Navigate', async () => {
+      await skillsPage.navigateToSkills();
+      await skillsPage.validatePageLoaded();
+    });
+
+    await test.step('Open AI & Agents category', async () => {
+      await skillsPage.validateCategoryTab(aiCategory.category);
+    });
+
+    await test.step('Validate AI subcategories', async () => {
+      for (const { name } of aiCategory.subcategories) {
+        await skillsPage.validateSubCategory(name);
+      }
+    });
+
+    await test.step('Validate core AI skill buttons', async () => {
+      const coreSkills = aiCategory.subcategories.flatMap(({ items }) =>
+        items.filter(({ text }) =>
+          [
+            'Claude',
+            'Codex',
+            'AI Agents',
+            'LLM API Orchestration',
+            'AI-Assisted Testing',
+          ].includes(text)
+        )
+      );
+
+      for (const { text } of coreSkills) {
+        await skillsPage.validateSkillButtonVisible(text);
+      }
+    });
+  });
 });

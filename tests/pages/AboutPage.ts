@@ -41,18 +41,24 @@ export class AboutPage {
 
   async clickSession(index: number) {
     const session = this.page.getByTestId(`section-toggle-${index}`);
+    await expect(session).toBeVisible();
+    await session.scrollIntoViewIfNeeded();
     await session.click();
 
     const contentLocator = this.page.getByTestId(`section-content-${index}`);
-    await this.page.waitForTimeout(300);
-    if (!(await contentLocator.isVisible())) {
+    try {
+      await expect(contentLocator).toBeVisible({ timeout: 1000 });
+    } catch {
       await session.click();
-      await this.page.waitForTimeout(300);
+      await expect(contentLocator).toBeVisible();
     }
   }
 
   async focusSectionToggle(index: number) {
-    await this.page.getByTestId(`section-toggle-${index}`).focus();
+    const session = this.page.getByTestId(`section-toggle-${index}`);
+    await expect(session).toBeVisible();
+    await session.scrollIntoViewIfNeeded();
+    await session.focus();
   }
 
   async validateSectionTitleVisible(index: number, expectedTitle: string) {

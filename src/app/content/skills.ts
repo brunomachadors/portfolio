@@ -120,6 +120,56 @@ export const SKILLS: SkillCategory[] = [
     ],
   },
   {
+    category: 'AI & Agents',
+    subcategories: [
+      {
+        name: 'AI Tools',
+        items: [
+          {
+            text: 'Claude',
+            description:
+              'Used as a coding and reasoning partner for exploring implementation options, debugging, writing clearer explanations, and improving testing workflows.',
+          },
+          {
+            text: 'Codex',
+            description:
+              'Used for agent-assisted development tasks, including codebase exploration, implementation, test execution, and iterative fixes across personal projects.',
+          },
+        ],
+      },
+      {
+        name: 'Agentic Workflows',
+        items: [
+          {
+            text: 'AI Agents',
+            description:
+              'Experience using agentic workflows to inspect projects, make scoped code changes, validate behavior, and support faster feedback loops.',
+          },
+          {
+            text: 'Prompt Engineering',
+            description:
+              'Designing prompts with clear goals, constraints, examples, and evaluation criteria for development, testing, mentoring, and API exercises.',
+          },
+          {
+            text: 'Context Engineering',
+            description:
+              'Structuring project context, requirements, and verification steps so AI tools can produce more reliable and maintainable results.',
+          },
+          {
+            text: 'LLM API Orchestration',
+            description:
+              'Exploring API orchestration with language models through practical course exercises, combining prompts, data flow, and automated validation.',
+          },
+          {
+            text: 'AI-Assisted Testing',
+            description:
+              'Applying AI to support test ideation, API validation scenarios, exploratory analysis, and clearer test automation feedback.',
+          },
+        ],
+      },
+    ],
+  },
+  {
     category: 'Testing',
     subcategories: [
       {

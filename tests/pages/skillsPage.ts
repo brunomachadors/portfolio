@@ -35,6 +35,7 @@ export class SkillsPage {
       `skill-${skill.toLowerCase().replace(/\s+/g, '-')}`
     );
     await expect(skillButton).toBeVisible();
+    await skillButton.scrollIntoViewIfNeeded();
     await skillButton.click();
 
     const skillDescriptionLocator = this.page.locator(
@@ -42,6 +43,13 @@ export class SkillsPage {
     );
     await expect(skillDescriptionLocator).toBeVisible();
     await expect(skillDescriptionLocator).toHaveText(description);
+  }
+
+  async validateSkillButtonVisible(skill: string) {
+    const skillButton = this.page.getByTestId(
+      `skill-${skill.toLowerCase().replace(/\s+/g, '-')}`
+    );
+    await expect(skillButton).toBeVisible();
   }
 
   async validateAllSkills(skills: { text: string; description: string }[]) {
