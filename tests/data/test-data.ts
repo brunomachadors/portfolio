@@ -17,6 +17,14 @@ export const HOME_DATA = {
     'Backend Testing - Postman + Playwright',
     'Non-Functional Tests',
   ],
+  apiCourseImageAlt:
+    'Anton presents his comic book character story while Bruno watches the slides, created through orchestration of APIs during the Backend Testing course.',
+  apiCourseSecondImageAlt:
+    'Sofia presents her character in a cute image during the Backend Testing course final presentations.',
+  apiCourseGalleryImageCount: 6,
+  manualTestingGalleryImageCount: 3,
+  frontendAutomationGalleryImageCount: 3,
+  apiCourseGalleryPreviewCount: 2,
 };
 
 // Footer Data

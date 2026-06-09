@@ -30,5 +30,24 @@ test.describe('Home', () => {
       await homePage.validateEducationSectionVisible();
       await homePage.validateEducationCardsVisible();
     });
+
+    await test.step('Check Manual Testing Gallery', async () => {
+      await homePage.validateManualTestingGalleryVisible();
+      await homePage.expandManualTestingGallery();
+    });
+
+    await test.step('Check Frontend Automation Gallery', async () => {
+      await homePage.validateFrontendAutomationGalleryVisible();
+      await homePage.expandFrontendAutomationGallery();
+    });
+
+    await test.step('Check API Course Gallery Modal', async () => {
+      await homePage.validateApiCourseGalleryVisible();
+      await homePage.expandApiCourseGallery();
+      await homePage.openApiCourseImageModal();
+      await homePage.validateApiCourseImageModalVisible();
+      await homePage.validateApiCourseImageKeyboardNavigation();
+      await homePage.closeApiCourseImageModalWithEscape();
+    });
   });
 });
