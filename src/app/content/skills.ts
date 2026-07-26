@@ -128,12 +128,17 @@ export const SKILLS: SkillCategory[] = [
           {
             text: 'Claude',
             description:
-              'Used as a coding and reasoning partner for exploring implementation options, debugging, writing clearer explanations, and improving testing workflows.',
+              'Used as a coding and reasoning partner for exploring implementation options, debugging, writing clearer explanations, and improving testing workflows. I also rely on it to review test strategies, challenge assumptions, and turn rough ideas into structured plans.',
+          },
+          {
+            text: 'Claude Code',
+            description:
+              'Agentic development directly in the terminal and IDE, used to explore unfamiliar codebases, implement scoped changes, run and fix test suites, and keep documentation in sync with the code.',
           },
           {
             text: 'Codex',
             description:
-              'Used for agent-assisted development tasks, including codebase exploration, implementation, test execution, and iterative fixes across personal projects.',
+              'Used for agent-assisted development tasks, including codebase exploration, implementation, test execution, and iterative fixes across personal and professional projects.',
           },
         ],
       },
@@ -143,7 +148,7 @@ export const SKILLS: SkillCategory[] = [
           {
             text: 'AI Agents',
             description:
-              'Experience using agentic workflows to inspect projects, make scoped code changes, validate behavior, and support faster feedback loops.',
+              'Experience using agentic workflows to inspect projects, make scoped code changes, validate behavior, and support faster feedback loops. On an AI-first travel platform, I set up AI agents dedicated to test automation, defining their scope, guardrails, and verification steps.',
           },
           {
             text: 'Prompt Engineering',

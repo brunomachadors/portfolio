@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { EXPERIENCES } from '../content/experiences';
+import { EXPERIENCES, getExperienceSlug } from '../content/experiences';
 import LinkButton from '../components/Button/LinkButton';
 
 export default function Resume() {
@@ -72,7 +72,10 @@ export default function Resume() {
                 data-testid={`resume-item-link-container-${index}`}
               >
                 <Link
-                  href={`/experience/${item.company.toLowerCase()}-${item.year.toLowerCase()}`}
+                  href={`/experience/${getExperienceSlug(
+                    item.company,
+                    item.year
+                  )}`}
                   className="inline-block text-yellow-500 border border-yellow-500 rounded-full px-4 py-2 text-sm sm:text-base hover:bg-yellow-500 hover:text-gray-900 transition"
                   data-testid={`resume-item-link-${index}`}
                   aria-label={`Learn more about ${item.role} at ${item.company} in ${item.year}`}

@@ -1,3 +1,22 @@
+// Bruno's first testing role started in August 2007. The About page renders the
+// years of experience dynamically, so the expected value is derived here from
+// the same reference date instead of being hardcoded.
+const QA_CAREER_START_YEAR = 2007;
+const QA_CAREER_START_MONTH = 7; // August (0-indexed)
+const QA_CAREER_START_DAY = 1;
+
+const getExpectedYearsOfExperience = (): number => {
+  const now = new Date();
+  const hasNotReachedAnniversary =
+    now.getMonth() < QA_CAREER_START_MONTH ||
+    (now.getMonth() === QA_CAREER_START_MONTH &&
+      now.getDate() < QA_CAREER_START_DAY);
+
+  return (
+    now.getFullYear() - QA_CAREER_START_YEAR - (hasNotReachedAnniversary ? 1 : 0)
+  );
+};
+
 // Home Page Data
 export const HOME_DATA = {
   title: 'Welcome to my Portfolio',
@@ -62,8 +81,7 @@ export const ABOUT_DATA = {
     },
     {
       title: 'My Journey into QA',
-      content:
-        'I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over 17 years of experience in testing, I have specialized in test automation since 2017.',
+      content: `I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over ${getExpectedYearsOfExperience()} years of experience in testing, starting as an intern in August 2007, I have specialized in test automation since 2017.`,
     },
     {
       title: 'Collaboration and Mentoring',
@@ -73,7 +91,7 @@ export const ABOUT_DATA = {
     {
       title: 'Teaching Experience',
       content:
-        'Teacher at Mindera Code Academy since January 2024. I introduced students to software quality, covering functional and non-functional testing, and API testing with Postman. As a final project, students tested the Petsauro project, applying test design and execution skills.',
+        'Teacher at Mindera Code Academy from January 2025 to July 2026. I introduced students to software quality, covering functional and non-functional testing, automated testing with Playwright, and backend testing with Postman. As a final project, students tested the Petsauro project, applying test design and execution skills.',
     },
     {
       title: 'Educational Background - Technology',

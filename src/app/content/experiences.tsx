@@ -1,21 +1,60 @@
+export const getExperienceSlug = (company: string, year: string) =>
+  `${company.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${year.toLowerCase()}`;
+
 export const EXPERIENCES = [
+  {
+    year: '2026',
+    company: 'CAPITAL ON TAP',
+    slug: 'capital-on-tap',
+    period: 'August 2026 - Present',
+    role: 'Lead Automation Engineer',
+    location: 'Porto - Portugal',
+    shortDescription:
+      'Lead Automation Engineer at Capital on Tap, a fintech that provides business credit cards and financial tools to over 200,000 small businesses across the UK and the US.',
+    fullDescription: [
+      {
+        position: 'Lead Automation Engineer',
+        project: 'Capital on Tap',
+        startDate: 'August 2026',
+        endDate: 'Present',
+        description: `
+          Leading a team of QA Engineers allocated across several projects at Capital on Tap, a fintech founded in London in 2012 that offers business credit cards, expense management, and savings products to small businesses in the UK and the US.
+
+          More details about the projects and the test automation strategy will be added as the work evolves.
+        `,
+        gallery: [],
+      },
+    ],
+  },
   {
     year: '2021',
     company: 'MINDERA',
     slug: 'mindera',
-    period: 'June 2021 - Present',
+    period: 'June 2021 - July 2026',
     role: 'Test Developer Cross Teams',
     location: 'Porto - Portugal',
     shortDescription:
-      'Software Developer in Test for Avios/IAGL projects (Exchange, Wallet, Enrolment, My Accounts at Avios.com), QA Engineer for Burberry, Mentor for the Neurodiversity Program, and Teacher at Mindera Code Academy.',
+      'QA Engineer Backend for the Icligo Travel Platform, Test Lead for YNAP, Software Developer in Test for Avios/IAGL projects (Exchange, Wallet, Enrolment, My Accounts at Avios.com), QA Engineer for Burberry, Mentor for the Neurodiversity Program, and Teacher at Mindera Code Academy.',
     fullDescription: [
+      {
+        position: 'QA Engineer Backend',
+        project: 'Icligo - Travel Platform',
+        startDate: 'May 2026',
+        endDate: 'July 2026',
+        description: `
+          Worked as QA Engineer Backend on an AI-first travel platform for Icligo, where travel partners assemble complete trip plans by selecting flights and accommodations.
+
+          I joined during the initial modelling of the product and contributed from the conceptual stage, helping shape how the tool should behave before it was built. On the quality side, I worked with Playwright and TypeScript and set up AI agents for test automation, exploring how agentic workflows can support and accelerate the testing process.
+        `,
+        gallery: [],
+      },
       {
         position: 'Test Lead',
         project: 'YNAP',
         startDate: 'May 2025',
-        endDate: 'Present',
+        endDate: 'May 2026',
         description: `
-          Currently acting as QAE Lead in a backend testing project for a YNAP client. My role involves leading the validation of RESTful APIs using a custom Java-based framework built with Rest Assured. I work closely with developers and product teams to ensure high-quality integrations and reliable backend services.
+          Acted as QAE Lead in a backend testing project for a YNAP client. My role involved leading the validation of RESTful APIs using a custom Java-based framework built with Rest Assured. I worked closely with developers and product teams to ensure high-quality integrations and reliable backend services.
         `,
         gallery: [],
       },
@@ -26,9 +65,9 @@ export const EXPERIENCES = [
         startDate: 'October 2022',
         endDate: 'March 2025',
         description: `
-          Currently working as a Quality Automation Engineer in agile teams across both the Avios Exchange and Programme teams. I created the test strategy for the Exchange team, where I led the transition from Cypress to Playwright, and also implemented Playwright in the Programme team.
+          Worked as a Quality Automation Engineer in agile teams across both the Avios Exchange and Programme teams. I created the test strategy for the Exchange team, where I led the transition from Cypress to Playwright, and also implemented Playwright in the Programme team.
 
-          I'm actively applying accessibility practices using tools like Lighthouse and Pa11y, and conducting performance testing with K6, ensuring quality across both frontend and backend. My role spans cross-teams, collaborating to ensure excellence in test automation across multiple areas of the organization.
+          I applied accessibility practices using tools like Lighthouse and Pa11y, and conducted performance testing with K6, ensuring quality across both frontend and backend. My role spanned cross-teams, collaborating to ensure excellence in test automation across multiple areas of the organization.
         `,
         gallery: [
           'https://res.cloudinary.com/dtglidvcw/image/upload/v1735601960/Portifolio/Avios/avios1.jpg',
@@ -41,7 +80,7 @@ export const EXPERIENCES = [
         position: 'Teacher',
         project: 'Mindera Code Academy',
         startDate: 'January 2025',
-        endDate: 'Present',
+        endDate: 'July 2026',
         description: `
           Taught an introduction to software quality, covering both functional and non-functional testing. 
           The course focused on key testing concepts, helping students understand different testing approaches.

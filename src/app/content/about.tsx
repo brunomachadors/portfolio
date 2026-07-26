@@ -1,3 +1,20 @@
+const QA_CAREER_START = new Date(2007, 7, 1); // August 2007 - first testing role
+
+const getYearsOfExperience = (from: Date = QA_CAREER_START): number => {
+  const now = new Date();
+  let years = now.getFullYear() - from.getFullYear();
+
+  const hasNotReachedAnniversary =
+    now.getMonth() < from.getMonth() ||
+    (now.getMonth() === from.getMonth() && now.getDate() < from.getDate());
+
+  if (hasNotReachedAnniversary) {
+    years -= 1;
+  }
+
+  return years;
+};
+
 export const sections = [
   {
     title: 'Personal Information',
@@ -17,8 +34,7 @@ export const sections = [
   },
   {
     title: 'My Journey into QA',
-    content:
-      'I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over 17 years of experience in testing, I have specialized in test automation since 2017.',
+    content: `I started working in QA by chance and quickly realized that I have a strong aptitude for it. With over ${getYearsOfExperience()} years of experience in testing, starting as an intern in August 2007, I have specialized in test automation since 2017.`,
   },
   {
     title: 'Collaboration and Mentoring',
@@ -28,7 +44,7 @@ export const sections = [
   {
     title: 'Teaching Experience',
     content: `
-      Teacher at Mindera Code Academy since January 2024. I introduced students to software quality, covering functional and non-functional testing, and API testing with Postman.
+      Teacher at Mindera Code Academy from January 2025 to July 2026. I introduced students to software quality, covering functional and non-functional testing, automated testing with Playwright, and backend testing with Postman.
 
       As a final project, students tested the Petsauro project, applying test design and execution skills.
     `,
