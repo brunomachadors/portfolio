@@ -12,6 +12,15 @@ export const skillColors: Record<string, string> = {
   Selenium: 'text-green-600 border-green-600',
   Cypress: 'text-teal-500 border-teal-500',
 
+  // AI & Agents
+  Claude: 'text-orange-300 border-orange-300',
+  Codex: 'text-emerald-300 border-emerald-300',
+  'AI Agents': 'text-cyan-300 border-cyan-300',
+  'Prompt Engineering': 'text-violet-300 border-violet-300',
+  'Context Engineering': 'text-sky-300 border-sky-300',
+  'LLM API Orchestration': 'text-fuchsia-300 border-fuchsia-300',
+  'AI-Assisted Testing': 'text-lime-300 border-lime-300',
+
   // Testing Tools
   K6: 'text-indigo-400 border-indigo-400',
   Newman: 'text-orange-500 border-orange-500',

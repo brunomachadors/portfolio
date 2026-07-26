@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { EXPERIENCES } from '@/app/content/experiences';
+import { EXPERIENCES, getExperienceSlug } from '@/app/content/experiences';
 import { useEffect, useRef, useState } from 'react';
 
 export default function ExperiencePage() {
@@ -22,8 +22,7 @@ export default function ExperiencePage() {
   const previousBodyOverflowRef = useRef<string>('');
 
   const experience = EXPERIENCES.find(
-    (exp) =>
-      `${exp.company.toLowerCase()}-${exp.year.toLowerCase()}` === companyYear
+    (exp) => getExperienceSlug(exp.company, exp.year) === companyYear
   );
 
   const selectedProject =
