@@ -58,37 +58,47 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'BugBuster',
+    title: 'DungeonTrack',
     description:
-      'BugBuster is a mentorship platform designed for software testing professionals or those transitioning into the field. The platform provides tailored guidance to help individuals enhance their skills and excel in the software testing domain.',
-    style: 'BugBuster',
-    logo: 'https://res.cloudinary.com/dtglidvcw/image/upload/v1735765437/Portifolio/projects/logo/logobugbuster.png',
+      'A web application for tabletop RPG groups to organize their campaigns, record session history, and keep characters and players documented in one place, so that a story told over months does not end up scattered across notebooks and chat threads.',
+    style: 'DungeonTrack',
+    logo: 'https://res.cloudinary.com/dtglidvcw/image/upload/v1784282505/DungeonTrack/logo_aarofz.png',
     sections: [
       {
-        title: 'Career Transition',
+        title: 'The Problem',
         content:
-          'BugBuster offers a structured program for individuals moving into the software testing field. With personalized plans combining theory and practice, participants are equipped with the skills needed to stand out as proficient testers.',
+          'Long RPG campaigns lose their own history. Session notes end up spread across notebooks, chat messages, and spreadsheets, and by the time a group returns to the table nobody remembers what happened three sessions ago. DungeonTrack gives that history a single home.',
       },
       {
-        title: 'Test Automation Specialization',
+        title: 'Features',
         content:
-          'For those already in the field, BugBuster provides focused mentorship on test automation. Participants learn advanced techniques and best practices to become specialists in automation testing.',
+          'Campaign organization, session history, adventure logs, character sheets and progression, player management, and search across everything a group has recorded.',
       },
       {
-        title: 'Professional Advancement',
+        title: 'Technologies Used',
         content:
-          'BugBuster helps experienced professionals elevate their careers through advanced specialization programs. The mentorship focuses on developing a strong foundation in testing methodologies and leadership in the field.',
+          'Built with Next.js, React, and TypeScript, styled with Tailwind CSS, using Clerk for authentication and Neon Postgres for data persistence.',
+      },
+      {
+        title: 'Design and Documentation',
+        content:
+          'The project has its own design system built around a parchment, burgundy, and gold palette, plus architecture decision records and written handoffs for each feature. AI agents work from that documentation, following specialized profiles for architecture, frontend, API, and database work.',
+      },
+      {
+        title: 'Collaboration',
+        content:
+          'Developed together with Guilherme Savaget, and currently the project where I spend most of my personal development time.',
       },
       {
         title: 'Visit the Project',
         content: (
           <a
-            href="https://brunomachadors.github.io/bugbuster/"
+            href="https://dungeontrack.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white underline"
+            className="underline"
           >
-            BugBuster Website
+            DungeonTrack Website
           </a>
         ),
       },
@@ -175,60 +185,6 @@ export const PROJECTS: Project[] = [
             className="text-gray-100 underline"
           >
             Playground Website
-          </a>
-        ),
-      },
-    ],
-  },
-  {
-    title: 'Pokedex',
-    description:
-      'A Pokedex application inspired by the Pokémon anime and games, created as the final project during the Mindera Code Academy bootcamp.',
-    style: 'Pokedex',
-    logo: 'https://res.cloudinary.com/dtglidvcw/image/upload/v1735765283/Portifolio/projects/logo/pokelogo.png',
-    sections: [
-      {
-        title: 'Features',
-        content: (
-          <ul className="list-disc pl-4">
-            <li>
-              Pokémon List: Displays all available Pokémon with detailed
-              information styled according to their type.
-            </li>
-            <li>
-              Pokémon Types: Lists all types with details like strengths,
-              weaknesses, and immunities.
-            </li>
-            <li>
-              Items: Provides information such as item images, descriptions, and
-              properties.
-            </li>
-            <li>
-              Regions: Includes maps and details about each region, its
-              generation, and related game versions.
-            </li>
-            <li>
-              Fossils: A special section dedicated to Pokémon fossils, created
-              as a request by my friend Luís Moreira.
-            </li>
-          </ul>
-        ),
-      },
-      {
-        title: 'Technologies Used',
-        content:
-          'The project was developed using React, Vite, and styled-components. It utilizes Redux for efficient state management and is hosted on GitHub Pages.',
-      },
-      {
-        title: 'Visit the Project',
-        content: (
-          <a
-            href="https://brunomachadors.github.io/pokedex/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white underline"
-          >
-            Pokedex Website
           </a>
         ),
       },

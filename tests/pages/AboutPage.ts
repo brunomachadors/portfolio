@@ -43,15 +43,22 @@ export class AboutPage {
     const session = this.page.getByTestId(`section-toggle-${index}`);
     await expect(session).toBeVisible();
     await session.scrollIntoViewIfNeeded();
-    await session.click();
 
     const contentLocator = this.page.getByTestId(`section-content-${index}`);
-    try {
-      await expect(contentLocator).toBeVisible({ timeout: 1000 });
-    } catch {
-      await session.click();
-      await expect(contentLocator).toBeVisible();
-    }
+
+    // The toggle only responds once React has hydrated. Retrying blindly is not
+    // safe here, because a second click on an already-open section closes it
+    // again, so the expanded state is checked before every click.
+    await expect(async () => {
+      const isExpanded =
+        (await session.getAttribute('aria-expanded')) === 'true';
+
+      if (!isExpanded) {
+        await session.click();
+      }
+
+      await expect(contentLocator).toBeVisible({ timeout: 1_000 });
+    }).toPass({ timeout: 15_000 });
   }
 
   async focusSectionToggle(index: number) {
